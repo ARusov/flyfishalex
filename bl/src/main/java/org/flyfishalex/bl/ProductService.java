@@ -1,13 +1,10 @@
 package org.flyfishalex.bl;
 
-import org.flyfishalex.dao.CategoryDao;
 import org.flyfishalex.dao.ProductDao;
-import org.flyfishalex.model.Category;
 import org.flyfishalex.model.Product;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -19,8 +16,20 @@ public class ProductService {
     @Autowired
     private ProductDao productDao;
 
-    public List<Product> getProducts(long categoryId){
-        List<Product> products=productDao.getProducts(categoryId);
+    public List<Product> getProducts(long productId) {
+        List<Product> products = productDao.getProducts(productId);
         return products;
+    }
+
+    public Product getProduct(long productId) {
+        return productDao.getProduct(productId);
+    }
+
+    public List<Product> getProducts() {
+        return productDao.getProducts();
+    }
+
+    public void saveProduct(Product product) {
+        productDao.saveProduct(product);
     }
 }

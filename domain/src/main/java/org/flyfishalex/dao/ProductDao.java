@@ -1,6 +1,5 @@
 package org.flyfishalex.dao;
 
-import org.flyfishalex.model.Category;
 import org.flyfishalex.model.Product;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.mongodb.core.MongoOperations;
@@ -30,14 +29,16 @@ public class ProductDao {
     private SequenceDAO sequenceDAO;
 
 
-    public void createProduct(Product product) {
+    public void saveProduct(Product product) {
         if (product != null) {
-            product.setId(sequenceDAO.getNextSequenceId(SEQ_KEY));
+            if (product.getId()<=0){
+                product.setId(sequenceDAO.getNextSequenceId(SEQ_KEY));
+            }
             operations.save(product);
         }
     }
 
-    public Product getProduct(int id) {
+    public Product getProduct(long id) {
         Query query = query(where("id").is(id));
         return operations.findOne(query, Product.class);
     }
@@ -51,5 +52,9 @@ public class ProductDao {
         Query query = query(where("categoryId").is(categoryId));
         return operations.find(query, Product.class);
 
+    }
+
+    public List<Product> getProducts() {
+        return operations.findAll(Product.class);
     }
 }

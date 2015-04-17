@@ -1,0 +1,58 @@
+#container{
+    width: 100%;
+}
+/*.product-row{*/
+    /*width: 100%;*/
+    /*border-bottom: gainsboro thin solid;*/
+/*}*/
+
+/*.product-id{*/
+    /*border: gainsboro thin solid;*/
+    /*width: 5%;*/
+    /*float: left;*/
+/*}*/
+/*.product-name{*/
+    /*border: gainsboro thin solid;*/
+    /*width: 25%;*/
+    /*float: left;*/
+/*}*/
+/*.product-nameEn{*/
+    /*border: gainsboro thin solid;*/
+    /*width: 25%;*/
+    /*float: left;*/
+/*}*/
+/*.product-category{*/
+    /*border: gainsboro thin solid;*/
+    /*width: 10%;*/
+    /*float: left;*/
+/*}*/
+/*.product-count{*/
+    /*border: gainsboro thin solid;*/
+    /*width: 5%;*/
+    /*float: left;*/
+/*}*/
+/*.product-price{*/
+    /*border: gainsboro thin solid;*/
+    /*width: 10%;*/
+    /*float: left;*/
+/*}*/
+/*.product-priceEuro{*/
+    /*border: gainsboro thin solid;*/
+    /*width: 10%;*/
+    /*float: left;*/
+/*}*/
+/*.product-provider{*/
+    /*border: gainsboro thin solid;*/
+    /*width: 3%;*/
+    /*float: left;*/
+/*}*/
+/*.product-edit{*/
+    /*border: gainsboro thin solid;*/
+    /*width: 3%;*/
+    /*float: left;*/
+/*}*/
+/*.product-delete{*/
+    /*border: gainsboro thin solid;*/
+    /*width: 3%;*/
+    /*float: left;*/
+/*}*/

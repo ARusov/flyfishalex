@@ -18,13 +18,30 @@ public class Category {
 
     private String nameEn;
 
-    private boolean isRU;
+    private boolean ru;
 
-    private boolean isEN;
+    private boolean en;
 
     private long parentId;
 
     private String articul1c;
+
+
+    public boolean isRu() {
+        return ru;
+    }
+
+    public void setRu(boolean ru) {
+        this.ru = ru;
+    }
+
+    public boolean isEn() {
+        return en;
+    }
+
+    public void setEn(boolean en) {
+        this.en = en;
+    }
 
     public String getNameEn() {
         return nameEn;
@@ -34,21 +51,6 @@ public class Category {
         this.nameEn = nameEn;
     }
 
-    public boolean isRU() {
-        return isRU;
-    }
-
-    public void setRU(boolean isRU) {
-        this.isRU = isRU;
-    }
-
-    public boolean isEN() {
-        return isEN;
-    }
-
-    public void setEN(boolean isEN) {
-        this.isEN = isEN;
-    }
 
     public String getArticul1c() {
         return articul1c;

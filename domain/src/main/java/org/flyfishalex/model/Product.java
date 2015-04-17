@@ -35,6 +35,35 @@ public class Product {
 
     private long categoryId;
 
+    private int count;
+
+    private boolean ru;
+
+    private boolean en;
+
+    public boolean isRu() {
+        return ru;
+    }
+
+    public void setRu(boolean ru) {
+        this.ru = ru;
+    }
+
+    public boolean isEn() {
+        return en;
+    }
+
+    public void setEn(boolean en) {
+        this.en = en;
+    }
+
+    public int getCount() {
+        return count;
+    }
+
+    public void setCount(int count) {
+        this.count = count;
+    }
 
     public String getNameEn() {
         return nameEn;

@@ -12,6 +12,7 @@ import org.springframework.web.servlet.ModelAndView;
  * Created by arusov on 4/2/2015.
  */
 @Controller
+@RequestMapping(value ="/{lang}/product")
 public class ProductController {
 
     @Autowired
@@ -27,7 +28,7 @@ public class ProductController {
     @RequestMapping(value ="/product/{productId}")
     public ModelAndView getIndex() {
         ModelAndView mav = new ModelAndView("product");
-        mav.addObject("categories", categoryService.getCategories(0));
+//        mav.addObject("categories", categoryService.getCategories(0));
         mav.addObject("env",environment.getActiveProfiles()[0]);
         return mav;
     }

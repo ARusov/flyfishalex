@@ -1,3 +1,6 @@
+<%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
 <div id="header">
     <ul id="nav-panel">
         <li class="nav-tab">
@@ -15,20 +18,20 @@
 </div>
 <div id="navigation">
     <div class="navigation">
-        <a>Home</a>
+        <a>Главная</a>
     </div>
 
     <div class="navigation">
         <a>Step By Step</a>
     </div>
     <div class="navigation-right">
-        <a>Contacts</a>
+        <a>Контакты</a>
     </div>
     <div class="navigation-right">
-        <a>Shipping</a>
+        <a>Доставка</a>
     </div>
     <div class="navigation-right">
-        <a>Payment</a>
+        <a>Оплата</a>
     </div>
 
 </div>

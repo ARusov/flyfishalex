@@ -34,7 +34,10 @@
                 <p>Родительская категория: <form:select path="parentId" id="id" items="${categories}"
                                                         itemValue="id" itemLabel="name"/>
                 </p>
-                <input type="submit"/>
+                <p>Английское наименование: <form:input path="nameEn"/></p>
+                <p>Отображать на российском сайте: <form:checkbox  path="ru"/></p>
+                <p>Отображать на европейском сайте: <form:checkbox path="en"/></p>
+                <input type="submit" value="Изменить/Добавить"/>
             </form:form>
         </div>
         <div>

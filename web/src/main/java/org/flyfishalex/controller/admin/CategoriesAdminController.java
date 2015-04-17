@@ -1,9 +1,10 @@
-package org.flyfishalex.controller;
+package org.flyfishalex.controller.admin;
 
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import org.flyfishalex.bl.CategoryService;
 import org.flyfishalex.model.Category;
+import org.flyfishalex.model.Lang;
 import org.flyfishalex.model.dto1c.CategoryDTO;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -17,7 +18,7 @@ import java.util.List;
  */
 @Controller
 @RequestMapping(value = "/{lang}/admin")
-public class AdminController {
+public class CategoriesAdminController {
 
     @Autowired
     private CategoryService categoryService;
@@ -85,7 +86,7 @@ public class AdminController {
     @ResponseBody
     String deleteCategory(@RequestParam(value = "categoryId", required = false) Long categoryId) {
         if (categoryId != null) {
-            List<Category> childs = categoryService.getCategories(categoryId);
+            List<CategoryDTO> childs = categoryService.getCategories(categoryId,"ru");
             if (childs == null || childs.size() > 0) {
                 return "Please remove child before";
 

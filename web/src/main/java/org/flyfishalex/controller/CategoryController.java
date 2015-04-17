@@ -2,6 +2,7 @@ package org.flyfishalex.controller;
 
 import org.flyfishalex.bl.CategoryService;
 import org.flyfishalex.bl.ProductService;
+import org.flyfishalex.model.Lang;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.core.env.Environment;
 import org.springframework.stereotype.Controller;
@@ -13,7 +14,7 @@ import org.springframework.web.servlet.ModelAndView;
  * Created by arusov on 4/2/2015.
  */
 @Controller
-@RequestMapping(value = "/category")
+@RequestMapping(value = "/{lang}/category")
 public class CategoryController {
 
     @Autowired
@@ -26,13 +27,18 @@ public class CategoryController {
     private Environment environment;
 
     @RequestMapping(value = "/{id}")
-    public ModelAndView getCategories(@PathVariable("id") long categoryId) {
+    public ModelAndView getCategories(@PathVariable("id") long categoryId, @PathVariable("lang") String lang) {
         ModelAndView mav = new ModelAndView("category");
-        mav.addObject("categories", categoryService.getCategories(categoryId));
-        mav.addObject("rootCategory", categoryService.getCategory(categoryId));
+        mav.addObject("categories", categoryService.getCategories(categoryId, lang));
+        mav.addObject("rootCategory", categoryService.getCategory(categoryId, lang));
         mav.addObject("products", productService.getProducts(categoryId));
-        mav.addObject("path", categoryService.getCategoriesForPath(categoryId));
         mav.addObject("env",environment.getActiveProfiles()[0]);
+        mav.addObject("lang",lang);
+        if (Lang.RU == Lang.getLang(lang)) {
+            mav.addObject("catalogue", "Каталог");
+        }else {
+            mav.addObject("catalogue", "Catalogue");
+        }
         return mav;
     }
 

@@ -15,7 +15,7 @@
 <body>
 
 
-<jsp:include page="header.jsp"/>
+<jsp:include page="en/header.jsp"/>
 <div id="container">
     <jsp:include page="menu.jsp"/>
     <div id="items">
@@ -26,7 +26,7 @@
                     <div class="item-image">
                         <a><img src="http://localhost:8080/flyfishalex/resources/images/nofoto.png"></a>
                     </div>
-                    <span><a href="${env}/category/${category.id}">${category.name}</a></span>
+                    <span><a href="${env}/category/${category.id}">${category.text}</a></span>
                 </div>
             </c:forEach>
         </c:if>

@@ -46,15 +46,12 @@ public class CategoryDao {
     }
 
 
-    public List<Category> getCategories(long parentId) {
-        Query query = query(where("parentId").is(parentId));
+    public List<Category> getCategories(long parentId, String lang) {
+        Query query = query(where("parentId").is(parentId).and(lang).is(true));
         return operations.find(query, Category.class);
     }
 
-    //TODO
-    public List<Category> getCategoriesForPath(long categoryId) {
-        return null;
-    }
+
 
     public List<Category> getCategories() {
 
