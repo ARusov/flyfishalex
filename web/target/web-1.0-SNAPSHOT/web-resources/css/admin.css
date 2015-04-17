@@ -1,0 +1,24 @@
+#container {
+    /*border: black thin solid;*/
+    width: 90%;
+}
+
+#tree {
+    /*border: black thin solid;*/
+    width: 30%;
+    float: left;
+}
+
+#category {
+    /*border: black thin solid;*/
+    width: 65%;
+    float: left;
+}
+#deleteCatogory{
+    float: none;
+}
+
+#category div{
+    width: 95%;
+    display: inline-block;
+}

@@ -1,0 +1,6 @@
+db.sequence.insert({_id: "category",seq: 0})
+db.sequence.insert({_id: "product",seq: 0})
+db.sequence.insert({_id: "variant",seq: 0})
+db.createCollection("category", {autoIndexId:true} )
+db.createCollection("product", {autoIndexId:true} )
+db.createCollection("variant", {autoIndexId:true} )

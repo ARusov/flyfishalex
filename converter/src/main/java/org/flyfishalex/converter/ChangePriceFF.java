@@ -26,9 +26,9 @@ public class ChangePriceFF {
     public Price getPrice(List<String[]> allProducts, String articul) {
 
         for (String[] item : allProducts) {
-            if (articul.equals(item[9])&& !articul.trim().isEmpty()) {
+            if (articul.equals(item[9]) && !articul.trim().isEmpty()) {
                 Double cost = Double.parseDouble(item[2].trim());
-                Price price = new Price(item[9], cost.intValue(), "\"Отгрузка в течение 3-5 дней\"");
+                Price price = new Price(item[9], cost.intValue(), 0);
                 return price;
             }
         }
@@ -42,7 +42,7 @@ public class ChangePriceFF {
             List<String[]> allProducts = reader.readAll();
             allProducts.remove(0);
 
-            File file = new File("C:\\Projects\\flyfishalex\\converter\\input\\Свободные-остатки-на-25.02.2015.xls");
+            File file = new File("C:\\Projects\\flyfishalex\\converter\\input\\Свободные-остатки-на-08.04.2015.xls");
             InputStream io = new FileInputStream(file);
             Workbook wb = new HSSFWorkbook(io);
             Sheet sheet = wb.getSheetAt(0);
@@ -56,9 +56,26 @@ public class ChangePriceFF {
                         Double cost = Double.parseDouble(getCellValue(row.getCell(8)).trim());
                         cost = cost * 0.99;
                         price.setPrice(cost.intValue());
-                        System.out.println(price);
+                        String countString = getCellValue(row.getCell(4));
+                        int count = 0;
+                        try {
+                            countString = countString.replaceAll("[^\\d]", "");
+
+                            count = Integer.parseInt(countString.trim());
+
+                        } catch (NumberFormatException e) {
+                            System.err.println(articul + " " + row.getRowNum());
+                            e.printStackTrace();
+                            count = 0;
+                        }
+                        if (count < 5) {
+                            count = 0;
+                        }
+
+                        price.setCount(count);
                         prices.add(price);
-                        toFile(prices,"");
+                        System.out.println(price);
+                        toFile(prices, "");
                     }
                 }
 
@@ -89,9 +106,9 @@ public class ChangePriceFF {
             writer.append(Product.SPLIT);
             writer.append("\"Цена\"");
             writer.append(Product.SPLIT);
-            writer.append("\"Описание\"");
+            writer.append("\"Склад\"");
             writer.append("\n");
-            for (Price price: output) {
+            for (Price price : output) {
                 writer.append(price.toString());
             }
             writer.flush();

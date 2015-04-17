@@ -2,9 +2,12 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
+      <module fileurl="file://$PROJECT_DIR$/bl/bl.iml" filepath="$PROJECT_DIR$/bl/bl.iml" />
       <module fileurl="file://$PROJECT_DIR$/converter/converter.iml" filepath="$PROJECT_DIR$/converter/converter.iml" />
+      <module fileurl="file://$PROJECT_DIR$/domain/domain.iml" filepath="$PROJECT_DIR$/domain/domain.iml" />
       <module fileurl="file://$PROJECT_DIR$/flyfishalex.iml" filepath="$PROJECT_DIR$/flyfishalex.iml" />
       <module fileurl="file://$PROJECT_DIR$/root.iml" filepath="$PROJECT_DIR$/root.iml" />
+      <module fileurl="file://$PROJECT_DIR$/web/web.iml" filepath="$PROJECT_DIR$/web/web.iml" />
     </modules>
   </component>
 </project>

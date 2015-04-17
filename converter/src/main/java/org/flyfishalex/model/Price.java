@@ -19,24 +19,23 @@ public class Price {
 
     private int price;
 
-    private String description = "";
+    private int count;
 
-    public Price(String articul, int price, String description) {
+
+    public Price(String articul, int price, int count) {
         this.articul = articul;
         this.price = price;
-        this.description = description;
+        this.count = count;
     }
 
 
-
-    public String getDescription() {
-        return description;
+    public int getCount() {
+        return count;
     }
 
-    public void setDescription(String description) {
-        this.description = description;
+    public void setCount(int count) {
+        this.count = count;
     }
-
 
     public String getArticul() {
         return articul;
@@ -62,7 +61,7 @@ public class Price {
         sb.append(SPLIT);
         sb.append(getPrice());
         sb.append(SPLIT);
-        sb.append(getDescription());
+        sb.append(getCount());
         sb.append("\n");
         return sb.toString();
     }

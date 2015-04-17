@@ -21,7 +21,7 @@ public class Product {
 
     private String Type;
 
-    private String variant;
+    private String variant="";
 
     private String description = "";
 
@@ -109,7 +109,7 @@ public class Product {
         sb.append(SPLIT);
         sb.append(getDescription());
         sb.append(SPLIT);
-        sb.append(getAddress());
+//        sb.append(getAddress());
         sb.append(SPLIT);
         sb.append(getImages());
         sb.append(SPLIT);

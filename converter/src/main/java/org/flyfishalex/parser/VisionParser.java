@@ -42,8 +42,10 @@ public class VisionParser extends XLSParser {
                 }
                 if (row.getCell(0) != null && !getCellValue(row.getCell(0)).isEmpty()) {
                     String articuls[] = getCellValue(row.getCell(2)).split(" ");
+                    String articul =articuls[articuls.length-1];
 
-                    String articul = articuls[2];
+
+
 
                     Product model = new Product();
                     model.setArticul(articul + getCellValue(row.getCell(3)).trim());
@@ -85,7 +87,9 @@ public class VisionParser extends XLSParser {
 //                    model.setDescription("\"Доставка в течение 3-5 дней\"");
                     if (!getCellValue(row.getCell(1)).toLowerCase().contains("отсутствует")) {
                         output.add(model);
-                        System.out.println(model);
+                        if(model.getArticul().trim().isEmpty()){
+                            System.out.println(model);
+                        }
                     }
 
 

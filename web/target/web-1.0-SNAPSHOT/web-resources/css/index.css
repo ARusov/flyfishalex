@@ -1,0 +1,44 @@
+
+#container {
+    /*border: black thin solid;*/
+    width: 100%;
+    display: table;
+    margin-top: 20px;
+}
+
+#news {
+    height: auto;
+    min-height: 50px;
+    width: 78%;
+    float: left;
+    margin-left: 10px;
+    text-align: center;
+}
+
+.news {
+    border-bottom: #11325d thin dotted;
+    width: 100%;
+    display: inline-block;
+    text-align: left;
+    margin-bottom: 20px;
+}
+
+.news span {
+    color: #11325d;
+}
+
+.news article {
+    text-align: left;
+    margin-top: 5px;
+    color: #737373;
+
+}
+
+#carusel{
+    border: black thin solid;
+    width: 100%;
+    height: 200px;
+    margin-bottom: 40px;
+
+}
+

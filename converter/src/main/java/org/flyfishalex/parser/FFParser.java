@@ -15,6 +15,7 @@ import java.util.Map;
 public class FFParser extends XLSParser {
     public FFParser(File file) {
         super(file);
+        System.out.println(file);
     }
 
     @Override
@@ -70,8 +71,9 @@ public class FFParser extends XLSParser {
                 if (model.getCount() < 5) {
                     model.setCount(0);
                 }
-
-                output.add(model);
+                if(!model.getArticul().trim().isEmpty()){
+                    output.add(model);
+                }
             }
         }
         System.out.println("ff");
