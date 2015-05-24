@@ -2,6 +2,7 @@ package org.flyfishalex.bl;
 
 import org.flyfishalex.dao.ProductDao;
 import org.flyfishalex.model.Product;
+import org.flyfishalex.model.Variant;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -31,5 +32,13 @@ public class ProductService {
 
     public void saveProduct(Product product) {
         productDao.saveProduct(product);
+    }
+
+    public void saveVariant(Variant variant) {
+        productDao.saveVariant(variant);
+    }
+
+    public List<Variant> getVariants(long productId) {
+        return productDao.getVariants(productId);
     }
 }

@@ -1,0 +1,65 @@
+h1{
+    text-align: left;
+}
+#container {
+    /*border: black thin solid;*/
+    width: 100%;
+    display: table;
+    margin-top: 20px;
+}
+#product {
+    /*border: gainsboro thin solid;*/
+    height: auto;
+    min-height: 50px;
+    width: 78%;
+    float: left;
+    margin-left: 10px;
+    text-align: center;
+}
+#product-info{
+    /*border: gainsboro thin solid;*/
+    height: auto;
+    width: 100%;
+    display: inline-block;
+}
+#product-images{
+    /*border: gainsboro thin solid;*/
+    height: auto;
+    width: 30%;
+    float: left;
+}
+.product-image{
+    border: gainsboro thin solid;
+    float: left;
+    margin: 2px;
+}
+#product-price-variant{
+    /*border: gainsboro thin solid;*/
+    height: auto;
+    width: 68%;
+    height: auto;
+    float: right;
+}
+#product-variant{
+    /*border: gainsboro thin solid;*/
+    height: auto;
+    width: 100%;
+}
+.product-variant{
+text-align: left;
+}
+.product-variant h2{
+font-weight: normal;
+    font-size: 12pt;
+    margin: 0;
+    padding: 0;
+}
+
+#product-description{
+    border-top: gainsboro thin solid;
+    margin-top: 20px;
+    height: auto;
+    width: 100%;
+    display: inline-block;
+}
+

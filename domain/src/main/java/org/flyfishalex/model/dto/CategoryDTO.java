@@ -1,4 +1,4 @@
-package org.flyfishalex.model.dto1c;
+package org.flyfishalex.model.dto;
 
 /**
  * Created by arusov on 16.04.2015.

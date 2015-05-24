@@ -1,6 +1,7 @@
 package org.flyfishalex.dao;
 
 import org.flyfishalex.model.Product;
+import org.flyfishalex.model.Variant;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.mongodb.core.MongoOperations;
 import org.springframework.data.mongodb.core.query.Query;
@@ -21,6 +22,7 @@ import static org.springframework.data.mongodb.core.query.Query.query;
 public class ProductDao {
 
     private static final String SEQ_KEY = "product";
+    private static final String SEQ_KEY_VARIANT = "variant";
 
     @Autowired
     private MongoOperations operations;
@@ -31,10 +33,19 @@ public class ProductDao {
 
     public void saveProduct(Product product) {
         if (product != null) {
-            if (product.getId()<=0){
+            if (product.getId() <= 0) {
                 product.setId(sequenceDAO.getNextSequenceId(SEQ_KEY));
             }
             operations.save(product);
+        }
+    }
+
+    public void saveVariant(Variant variant) {
+        if (variant != null) {
+            if (variant.getId() <= 0) {
+                variant.setId(sequenceDAO.getNextSequenceId(SEQ_KEY_VARIANT));
+            }
+            operations.save(variant);
         }
     }
 
@@ -56,5 +67,10 @@ public class ProductDao {
 
     public List<Product> getProducts() {
         return operations.findAll(Product.class);
+    }
+
+    public List<Variant> getVariants(long productId) {
+        Query query = query(where("productId").is(productId));
+        return operations.find(query, Variant.class);
     }
 }

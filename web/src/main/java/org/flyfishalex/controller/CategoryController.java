@@ -2,7 +2,7 @@ package org.flyfishalex.controller;
 
 import org.flyfishalex.bl.CategoryService;
 import org.flyfishalex.bl.ProductService;
-import org.flyfishalex.model.Lang;
+import org.flyfishalex.enums.Lang;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.core.env.Environment;
 import org.springframework.stereotype.Controller;
@@ -29,8 +29,10 @@ public class CategoryController {
     @RequestMapping(value = "/{id}")
     public ModelAndView getCategories(@PathVariable("id") long categoryId, @PathVariable("lang") String lang) {
         ModelAndView mav = new ModelAndView("category");
-        mav.addObject("categories", categoryService.getCategories(categoryId, lang));
-        mav.addObject("rootCategory", categoryService.getCategory(categoryId, lang));
+        mav.addObject("rootCategories", categoryService.getCategories(0,lang));
+        mav.addObject("categories", categoryService.getCategories(categoryId,lang));
+        mav.addObject("parent", categoryService.getCategory(categoryId, lang));
+        mav.addObject("parentCategories", categoryService.getParentCategories(categoryId, lang));
         mav.addObject("products", productService.getProducts(categoryId));
         mav.addObject("env",environment.getActiveProfiles()[0]);
         mav.addObject("lang",lang);

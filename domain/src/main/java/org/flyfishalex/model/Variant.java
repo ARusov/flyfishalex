@@ -1,7 +1,6 @@
 package org.flyfishalex.model;
 
 import org.springframework.data.annotation.Id;
-import org.springframework.data.mongodb.core.mapping.DBRef;
 import org.springframework.data.mongodb.core.mapping.Document;
 
 /**
@@ -13,12 +12,51 @@ public class Variant {
     @Id
     private long id;
 
+    private long productId;
+
+    private String article;
+
     private String description;
 
-    @DBRef(lazy = true)
-    private Product product;
+    private String descriptionEn;
 
     private int price;
+
+    private int priceEuro;
+
+    private int count;
+
+    public String getArticle() {
+        return article;
+    }
+
+    public void setArticle(String article) {
+        this.article = article;
+    }
+
+    public String getDescriptionEn() {
+        return descriptionEn;
+    }
+
+    public void setDescriptionEn(String descriptionEn) {
+        this.descriptionEn = descriptionEn;
+    }
+
+    public int getPriceEuro() {
+        return priceEuro;
+    }
+
+    public void setPriceEuro(int priceEuro) {
+        this.priceEuro = priceEuro;
+    }
+
+    public int getCount() {
+        return count;
+    }
+
+    public void setCount(int count) {
+        this.count = count;
+    }
 
     public long getId() {
         return id;
@@ -36,12 +74,12 @@ public class Variant {
         this.description = description;
     }
 
-    public Product getProduct() {
-        return product;
+    public long getProductId() {
+        return productId;
     }
 
-    public void setProduct(Product product) {
-        this.product = product;
+    public void setProductId(long productId) {
+        this.productId = productId;
     }
 
     public int getPrice() {

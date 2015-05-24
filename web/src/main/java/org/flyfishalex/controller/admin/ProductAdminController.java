@@ -4,13 +4,15 @@ import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import org.flyfishalex.bl.CategoryService;
 import org.flyfishalex.bl.ProductService;
+import org.flyfishalex.enums.Lang;
 import org.flyfishalex.model.Product;
+import org.flyfishalex.model.Variant;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
 /**
@@ -27,33 +29,38 @@ public class ProductAdminController {
     private CategoryService categoryService;
 
 
-    @RequestMapping(value = {"/",""}, method = RequestMethod.GET)
+    @RequestMapping(value = {"/", ""}, method = RequestMethod.GET)
     public ModelAndView getProducts() {
         ModelAndView mav = new ModelAndView("admin/products");
-        mav.addObject("products",productService.getProducts());
+        mav.addObject("products", productService.getProducts());
         return mav;
     }
 
     @RequestMapping(value = "/product", method = RequestMethod.GET)
-    public ModelAndView getProduct(@RequestParam(value = "productId", required = false) Long productId) {
+    public ModelAndView getNewProduct() {
         ModelAndView mav = new ModelAndView("admin/product");
-        Product product = null;
-        if (productId == null) {
-            product = new Product();
-        } else {
-            product = productService.getProduct(productId);
-        }
+        Product product = new Product();
         mav.addObject("product", product);
+        mav.addObject("newVariant", new Variant());
         mav.addObject("categories", categoryService.getCategories());
+        return mav;
+    }
 
-
+    @RequestMapping(value = "/product/{productId}", method = RequestMethod.GET)
+    public ModelAndView getProduct(@PathVariable(value = "productId") Long productId) {
+        ModelAndView mav = new ModelAndView("admin/product");
+        Product product = productService.getProduct(productId);
+        mav.addObject("product", product);
+        mav.addObject("variants", productService.getVariants(productId));
+        mav.addObject("newVariant", new Variant());
+        mav.addObject("categories", categoryService.getCategories());
         return mav;
     }
 
     @RequestMapping(value = "/product", method = RequestMethod.POST)
     public String createProduct(@ModelAttribute Product product) {
 
-            productService.saveProduct(product);
+        productService.saveProduct(product);
 
         ObjectMapper mapper = new ObjectMapper();
         try {
@@ -63,6 +70,17 @@ public class ProductAdminController {
         }
         return "redirect:http://localhost:8080/flyfishalex/ru/admin/products";
 
+    }
+
+
+    @RequestMapping(value = "/product/{productId}/variant", method = RequestMethod.POST)
+    private String saveVariant(@PathVariable("lang") String lang
+            , @PathVariable("productId") long productId, Variant variant) {
+
+        System.out.println(variant.getId() + " : " + variant.getDescription());
+        variant.setProductId(productId);
+        productService.saveVariant(variant);
+        return "redirect:" + Lang.getLang(lang).getContext() + "/admin/products/product/" + productId;
     }
 
 }

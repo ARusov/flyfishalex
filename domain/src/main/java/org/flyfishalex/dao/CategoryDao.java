@@ -6,6 +6,7 @@ import org.springframework.data.mongodb.core.MongoOperations;
 import org.springframework.data.mongodb.core.query.Query;
 import org.springframework.stereotype.Repository;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import static org.springframework.data.mongodb.core.query.Criteria.where;
@@ -52,7 +53,6 @@ public class CategoryDao {
     }
 
 
-
     public List<Category> getCategories() {
 
         return operations.findAll(Category.class);
@@ -66,9 +66,42 @@ public class CategoryDao {
     }
 
     public void delete(Category category) {
-        if(category!=null){
+        if (category != null) {
             operations.remove(category);
         }
 
+    }
+
+    public List<Category> getCategories(String lang) {
+        Query query = query(where(lang).is(true));
+        return operations.find(query, Category.class);
+    }
+
+    public List<Category> getParentCategories(long categoryId, String lang) {
+        List<Category> categories = new ArrayList<Category>();
+        Category category = getCategory(categoryId, lang);
+        if (category != null) {
+            if (category.getParentId()>0){
+                categories.add(0,category);
+            }
+            long parentId = category.getParentId();
+            while (parentId > 0) {
+                category = getCategory(parentId, lang);
+                if (category != null) {
+                    if (category.getParentId()>0){
+                        categories.add(0,category);
+                    }
+                    parentId = category.getParentId();
+                } else {
+                    break;
+                }
+            }
+        }
+        return categories;
+    }
+
+    private Category getCategory(long categoryId, String lang) {
+        Query query = query(where("id").is(categoryId).and(lang).is(true));
+        return operations.findOne(query, Category.class);
     }
 }

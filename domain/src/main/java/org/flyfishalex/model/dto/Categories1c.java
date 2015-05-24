@@ -1,4 +1,4 @@
-package org.flyfishalex.model.dto1c;
+package org.flyfishalex.model.dto;
 
 
 import javax.xml.bind.annotation.XmlAccessType;

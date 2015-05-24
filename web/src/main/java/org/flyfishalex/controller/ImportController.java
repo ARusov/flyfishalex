@@ -2,8 +2,8 @@ package org.flyfishalex.controller;
 
 import org.flyfishalex.bl.CategoryService;
 import org.flyfishalex.model.Category;
-import org.flyfishalex.model.dto1c.Categories1c;
-import org.flyfishalex.model.dto1c.Category1c;
+import org.flyfishalex.model.dto.Categories1c;
+import org.flyfishalex.model.dto.Category1c;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.core.env.Environment;
 import org.springframework.stereotype.Controller;

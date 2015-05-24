@@ -19,15 +19,11 @@ public class Product {
 
     private String nameEn;
 
-    private String articul1c;
+    private String article;
 
     private String description;
 
     private String descriptionEn;
-
-    private int price;
-
-    private int priceEuro;
 
     private int provider;
 
@@ -35,11 +31,10 @@ public class Product {
 
     private long categoryId;
 
-    private int count;
-
     private boolean ru;
 
     private boolean en;
+
 
     public boolean isRu() {
         return ru;
@@ -57,14 +52,6 @@ public class Product {
         this.en = en;
     }
 
-    public int getCount() {
-        return count;
-    }
-
-    public void setCount(int count) {
-        this.count = count;
-    }
-
     public String getNameEn() {
         return nameEn;
     }
@@ -79,14 +66,6 @@ public class Product {
 
     public void setDescriptionEn(String descriptionEn) {
         this.descriptionEn = descriptionEn;
-    }
-
-    public int getPriceEuro() {
-        return priceEuro;
-    }
-
-    public void setPriceEuro(int priceEuro) {
-        this.priceEuro = priceEuro;
     }
 
     public int getProvider() {
@@ -113,12 +92,12 @@ public class Product {
         this.url = url;
     }
 
-    public String getArticul1c() {
-        return articul1c;
+    public String getArticle() {
+        return article;
     }
 
-    public void setArticul1c(String articul1c) {
-        this.articul1c = articul1c;
+    public void setArticle(String article) {
+        this.article = article;
     }
 
     public String getDescription() {
@@ -128,15 +107,6 @@ public class Product {
     public void setDescription(String description) {
         this.description = description;
     }
-
-    public int getPrice() {
-        return price;
-    }
-
-    public void setPrice(int price) {
-        this.price = price;
-    }
-
 
     public long getId() {
         return id;

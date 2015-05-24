@@ -2,8 +2,8 @@ package org.flyfishalex.bl;
 
 import org.flyfishalex.dao.CategoryDao;
 import org.flyfishalex.model.Category;
-import org.flyfishalex.model.Lang;
-import org.flyfishalex.model.dto1c.CategoryDTO;
+import org.flyfishalex.enums.Lang;
+import org.flyfishalex.model.dto.CategoryDTO;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -95,5 +95,20 @@ public class CategoryService {
 
     public void delete(Category category) {
         categoryDao.delete(category);
+    }
+
+    public List<CategoryDTO> getCategories(String lang) {
+
+        return convertCategories(categoryDao.getCategories(lang), Lang.getLang(lang));
+    }
+
+    public List<CategoryDTO> getParentCategories(long categoryId, String lang) {
+        List<Category> categories=categoryDao.getParentCategories(categoryId,lang);
+        if(categories!=null){
+               if(categories.size()<=0){
+                   return null;
+               }
+        }
+        return convertCategories(categories, Lang.getLang(lang));
     }
 }

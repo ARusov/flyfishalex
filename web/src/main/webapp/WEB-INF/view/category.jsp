@@ -15,30 +15,34 @@
 <body>
 
 
-<jsp:include page="en/header.jsp"/>
+<jsp:include page="${lang}/header.jsp"/>
 <div id="container">
     <jsp:include page="menu.jsp"/>
     <div id="items">
-        <%--categories--%>
-        <c:if test="${not empty categories}">
-            <c:forEach var="category" items="${categories}">
-                <div class="item">
-                    <div class="item-image">
-                        <a><img src="http://localhost:8080/flyfishalex/resources/images/nofoto.png"></a>
+        <c:choose>
+            <%--categories--%>
+            <c:when test="${not empty categories}">
+                <c:forEach var="category" items="${categories}">
+                    <div class="item">
+                        <div class="item-image">
+                            <a><img src="http://localhost:8080/flyfishalex/resources/images/nofoto.png"></a>
+                        </div>
+                        <span><a href="${env}/category/${category.id}">${category.text}</a></span>
                     </div>
-                    <span><a href="${env}/category/${category.id}">${category.text}</a></span>
-                </div>
-            </c:forEach>
-        </c:if>
-        <%--products--%>
-        <c:if test="${not empty products}">
-            <c:forEach var="product" items="${products}">
-                <div class="item">
-                    <span><a href="${env}/product/${product.id}">${product.name}</a></span>
-                </div>
-            </c:forEach>
-        </c:if>
-
+                </c:forEach>
+            </c:when>
+            <%--products--%>
+            <c:when test="${not empty products}">
+                <c:forEach var="product" items="${products}">
+                    <div class="item">
+                        <div class="item-image">
+                            <a><img src="http://localhost:8080/flyfishalex/resources/images/nofoto.png"></a>
+                        </div>
+                        <span><a href="${env}/product/${product.id}">${product.name}</a></span>
+                    </div>
+                </c:forEach>
+            </c:when>
+        </c:choose>
     </div>
 </div>
 <%--<div id="footer"></div>--%>

@@ -42,7 +42,7 @@ public class ChangePriceVision {
             List<String[]> allProducts = reader.readAll();
             allProducts.remove(0);
 
-            File file = new File("C:\\Projects\\flyfishalex\\converter\\input\\наличие Vision.xls");
+            File file = new File("C:\\Projects\\flyfishalex\\converter\\input\\наличие VISION и KEEPER.xls");
             InputStream io = new FileInputStream(file);
             Workbook wb = new HSSFWorkbook(io);
             Sheet sheet = wb.getSheetAt(0);

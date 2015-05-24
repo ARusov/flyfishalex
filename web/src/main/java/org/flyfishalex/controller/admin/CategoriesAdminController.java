@@ -3,9 +3,10 @@ package org.flyfishalex.controller.admin;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import org.flyfishalex.bl.CategoryService;
+import org.flyfishalex.controller.AbstractController;
+import org.flyfishalex.enums.Lang;
 import org.flyfishalex.model.Category;
-import org.flyfishalex.model.Lang;
-import org.flyfishalex.model.dto1c.CategoryDTO;
+import org.flyfishalex.model.dto.CategoryDTO;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
@@ -18,7 +19,7 @@ import java.util.List;
  */
 @Controller
 @RequestMapping(value = "/{lang}/admin")
-public class CategoriesAdminController {
+public class CategoriesAdminController extends AbstractController {
 
     @Autowired
     private CategoryService categoryService;
@@ -26,6 +27,9 @@ public class CategoriesAdminController {
     @RequestMapping(value = "/categories", method = RequestMethod.GET)
     public ModelAndView getCategories(@RequestParam(value = "categoryId", required = false) Long categoryId) {
         ModelAndView mav = new ModelAndView("admin");
+        if(!checkRole("ROLE_USER")){
+            return new ModelAndView("redirect:"+ Lang.getLang("ru").getContext()+"/user/login");
+        }
         Category category = null;
         if (categoryId == null) {
             category = new Category();
@@ -52,7 +56,7 @@ public class CategoriesAdminController {
         CategoryDTO categoryDTO = new CategoryDTO();
         categoryDTO.setId("0");
         categoryDTO.setText("Каталог");
-        categories.add(0,categoryDTO);
+        categories.add(0, categoryDTO);
         return categories;
     }
 
@@ -86,7 +90,7 @@ public class CategoriesAdminController {
     @ResponseBody
     String deleteCategory(@RequestParam(value = "categoryId", required = false) Long categoryId) {
         if (categoryId != null) {
-            List<CategoryDTO> childs = categoryService.getCategories(categoryId,"ru");
+            List<CategoryDTO> childs = categoryService.getCategories(categoryId, "ru");
             if (childs == null || childs.size() > 0) {
                 return "Please remove child before";
 

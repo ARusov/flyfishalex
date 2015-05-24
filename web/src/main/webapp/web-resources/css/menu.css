@@ -38,6 +38,15 @@
 
 }
 
-.menu-item-child {
+.menu-item-2 {
+    padding-left: 10px;
+}
+.menu-item-3 {
     padding-left: 20px;
+}
+.menu-item-4 {
+    padding-left: 30px;
+}
+.menu-item-5 {
+    padding-left: 40px;
 }
