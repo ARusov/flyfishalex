@@ -8,8 +8,6 @@ import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
-import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
-import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Repository;
 
 import java.security.MessageDigest;
@@ -51,14 +49,14 @@ public class UserDao implements UserDetailsService {
         }
     }
 
-    public User getByEmail(String email) {
+    public User getUser(String email) {
         Query query = query(where("email").is(email));
         return operations.findOne(query, User.class);
     }
 
     @Override
     public UserDetails loadUserByUsername(String email) throws UsernameNotFoundException {
-        User user = getByEmail(email);
+        User user = getUser(email);
         if (user == null) {
             throw new UsernameNotFoundException("User was not found user email = " + email);
         }

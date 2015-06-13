@@ -4,6 +4,7 @@ import org.flyfishalex.bl.CategoryService;
 import org.flyfishalex.bl.ProductService;
 import org.flyfishalex.enums.Lang;
 import org.flyfishalex.model.Product;
+import org.flyfishalex.model.User;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.core.env.Environment;
 import org.springframework.stereotype.Controller;
@@ -16,7 +17,7 @@ import org.springframework.web.servlet.ModelAndView;
  */
 @Controller
 @RequestMapping(value = "/{lang}/product")
-public class ProductController {
+public class ProductController extends AbstractController {
 
     @Autowired
     private CategoryService categoryService;
@@ -42,12 +43,15 @@ public class ProductController {
             mav.addObject("parent", categoryService.getCategory(categoryId, lang));
             mav.addObject("parentCategories", categoryService.getParentCategories(categoryId, lang));
             mav.addObject("products", productService.getProducts(categoryId));
-            mav.addObject("env", environment.getActiveProfiles()[0]);
-            mav.addObject("lang", lang);
+            mav.addObject("lang", Lang.getLang(lang));
             if (Lang.RU == Lang.getLang(lang)) {
                 mav.addObject("catalogue", "Каталог");
             } else {
                 mav.addObject("catalogue", "Catalogue");
+            }
+            User user= getUser();
+            if(user!=null){
+                mav.addObject("user", user);
             }
             return mav;
         }

@@ -12,3 +12,7 @@ a{
     text-decoration: none;
     color: #11325d;
 }
+.invisible{
+    visibility: hidden;
+    height: 0;
+}

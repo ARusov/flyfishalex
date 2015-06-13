@@ -41,4 +41,9 @@ public class ProductService {
     public List<Variant> getVariants(long productId) {
         return productDao.getVariants(productId);
     }
+
+
+    public Variant getVariant(long variantId) {
+        return productDao.getVariant(variantId);
+    }
 }

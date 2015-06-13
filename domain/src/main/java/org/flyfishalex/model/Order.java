@@ -1,13 +1,10 @@
 package org.flyfishalex.model;
 
-import org.flyfishalex.enums.OrderStatus;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 import org.springframework.format.annotation.DateTimeFormat;
 
-
 import java.util.Date;
-import java.util.List;
 
 @Document(collection = "order")
 public class Order {
@@ -17,9 +14,8 @@ public class Order {
 
     private long userId;
 
-    private List<OrderPoint> orderPoints;
 
-    private OrderStatus status;
+    private int status;
 
     @DateTimeFormat(iso = DateTimeFormat.ISO.DATE_TIME)
     private Date date;
@@ -28,6 +24,45 @@ public class Order {
 
     private int finalPrice;
 
+    private Address address;
+
+    private int deliveryId;
+
+    private int paymentId;
+
+    private int deliveryPrice;
+
+    public int getDeliveryPrice() {
+        return deliveryPrice;
+    }
+
+    public void setDeliveryPrice(int deliveryPrice) {
+        this.deliveryPrice = deliveryPrice;
+    }
+
+    public int getDeliveryId() {
+        return deliveryId;
+    }
+
+    public void setDeliveryId(int deliveryId) {
+        this.deliveryId = deliveryId;
+    }
+
+    public int getPaymentId() {
+        return paymentId;
+    }
+
+    public void setPaymentId(int paymentId) {
+        this.paymentId = paymentId;
+    }
+
+    public Address getAddress() {
+        return address;
+    }
+
+    public void setAddress(Address address) {
+        this.address = address;
+    }
 
     public Order() {
     }
@@ -48,19 +83,11 @@ public class Order {
         this.userId = userId;
     }
 
-    public List<OrderPoint> getOrderPoints() {
-        return orderPoints;
-    }
-
-    public void setOrderPoints(List<OrderPoint> orderPoints) {
-        this.orderPoints = orderPoints;
-    }
-
-    public OrderStatus getStatus() {
+    public int getStatus() {
         return status;
     }
 
-    public void setStatus(OrderStatus status) {
+    public void setStatus(int status) {
         this.status = status;
     }
 

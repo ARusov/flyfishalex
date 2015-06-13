@@ -35,7 +35,7 @@ public class CategoryController {
         mav.addObject("parentCategories", categoryService.getParentCategories(categoryId, lang));
         mav.addObject("products", productService.getProducts(categoryId));
         mav.addObject("env",environment.getActiveProfiles()[0]);
-        mav.addObject("lang",lang);
+        mav.addObject("lang",Lang.getLang(lang));
         if (Lang.RU == Lang.getLang(lang)) {
             mav.addObject("catalogue", "Каталог");
         }else {

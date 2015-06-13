@@ -1,57 +1,83 @@
-    <Группы>
-        <Группа>
-            <Ид>bd72d90d-55bc-11d9-848a-00112f43529a</Ид>
-            <Наименование>Нахлыстовые мушки</Наименование>
-            <Группы>
-                <Группа>
-                    <Ид>bd72d90e-55bc-11d9-848a-00112f43529a</Ид>
-                    <Наименование>Сухие мушки</Наименование>
-                    <Группы/>
-                </Группа>
-                <Группа>
-                    <Ид>dee6e1cf-55bc-11d9-848a-00112f43529a</Ид>
-                    <Наименование>Мокрые мушки</Наименование>
-                    <Группы/>
-                </Группа>
-                <Группа>
-                    <Ид>dee6e186-55bc-11d9-848a-00112f43529a</Ид>
-                    <Наименование>Стримеры</Наименование>
-                    <Группы/>
-                </Группа>
-            </Группы>
-        </Группа>
+<?xml version='1.0' encoding='utf-8'?>
+<flyfishalex>
+    <categories>
+        <category>
+            <id>101</id>
+            <name>Нахлыстовые мушки</name>
+            <nameEn>Flies</nameEn>
+            <parentId>0</parentId>
+            <ru>true</ru>
+            <en>true</en>
+            <description></description>
+            <descriptionEn></descriptionEn>
+            <categories>
+                <category>
+                    <id>107</id>
+                    <name>Сухие мушки</name>
+                    <nameEn>Dry flies</nameEn>
+                    <parentId>101</parentId>
+                    <ru>true</ru>
+                    <en>true</en>
+                    <description></description>
+                    <descriptionEn></descriptionEn>
+                </category>
+                <category>
+                    <id>108</id>
+                    <name>Мокрые мушки</name>
+                    <nameEn>Wet flies</nameEn>
+                    <parentId>101</parentId>
+                    <ru>true</ru>
+                    <en>true</en>
+                    <description></description>
+                    <descriptionEn></descriptionEn>
+                </category>
+            </categories>
+        </category>
+    </categories>
 
-        <Группа>
-            <Ид>bd72d90d-55bc-11d9-848a-00112f435291</Ид>
-            <Наименование>Снасти</Наименование>
-            <Группы>
-                <Группа>
-                    <Ид>bd72d90e-55bc-11d9-848a-00112f435292</Ид>
-                    <Наименование>Удилища</Наименование>
-                    <Группы>
-                        <Группа>
-                            <Ид>bd72d90e-55bc-11d9-848a-00112f435292</Ид>
-                            <Наименование>Одноручные удилища</Наименование>
-                            <Группы/>
-                        </Группа>
-                        <Группа>
-                            <Ид>bd72d90e-55bc-11d9-848a-00112f435292</Ид>
-                            <Наименование>Двуручные удилища</Наименование>
-                            <Группы/>
-                        </Группа>
-                    </Группы>
-                </Группа>
-                <Группа>
-                    <Ид>dee6e1cf-55bc-11d9-848a-00112f435293</Ид>
-                    <Наименование>Катушки</Наименование>
-                    <Группы/>
-                </Группа>
-                <Группа>
-                    <Ид>dee6e186-55bc-11d9-848a-00112f435294</Ид>
-                    <Наименование>Шнуры</Наименование>
-                    <Группы/>
-                </Группа>
-            </Группы>
-        </Группа>
+    <providers>
+        <provider>
+            <id>1</id>
+            <name>flyfishalex</name>
+        </provider>
+    </providers>
 
-    </Группы>
+    <products>
+        <product>
+            <id>0</id>
+            <name>Elk heir caddis</name>
+            <nameEn>Elk heir caddis</nameEn>
+            <categoryId>107</categoryId>
+            <ru>true</ru>
+            <en>true</en>
+            <price>60</price>
+            <priceEuro>1</priceEuro>
+            <count>10</count>
+            <provider>1</provider>
+            <!--без пробелов!-->
+            <article>qwerty=)</article>
+            <variants>
+                <variant>
+                    <id>???</id>
+                    <name>размер #10</name>
+                    <nameEn>hook #10</nameEn>
+                    <article>qwerty</article>
+                    <price>60</price>
+                    <priceEuro>1</priceEuro>
+                    <count>10</count>
+                </variant>
+                <variant>
+                    <id>???</id>
+                    <name>размер #14</name>
+                    <nameEn>hook #14</nameEn>
+                    <article>qwerty</article>
+                    <price>60</price>
+                    <priceEuro>1</priceEuro>
+                    <count>10</count>
+                </variant>
+            </variants>
+
+        </product>
+
+    </products>
+</flyfishalex>

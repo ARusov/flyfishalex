@@ -7,11 +7,13 @@
     <link rel="stylesheet" href="<c:url value="/resources/css/product.css"/> ">
     <link rel="stylesheet" href="<c:url value="/resources/css/footer.css"/> ">
     <link rel="stylesheet" href="<c:url value="/resources/css/menu.css"/> ">
+    <script src="<c:url value="/resources/js/jquery-1.11.2.min.js"/> "></script>
+    <script src="<c:url value="/resources/js/product.js"/>"></script>
     <title>???TODO</title>
 </head>
 <body>
 
-<jsp:include page="${lang}/header.jsp"/>
+<jsp:include page="${lang.lang}/header.jsp"/>
 <div id="container">
     <jsp:include page="menu.jsp"/>
     <div id="product">
@@ -40,8 +42,19 @@
                         <c:if test="${not empty variants}">
                             <c:forEach items="${variants}" var="variant">
                                 <div class="product-variant">
-                                    <h2>${variant.description} <span> ${variant.price}</span> <span> В корзину</span>
-                                </h2></div>
+                                    <h2>${variant.description}<span>${variant.price}</span>
+                                        <c:choose>
+                                            <c:when test="${variant.count>0}">
+                                                    <a href="${lang.context}+/user/basket/${variant.id}" class="product-variant-link" name="${variant.id}">В корзину</a>
+                                            </c:when>
+                                            <c:otherwise>
+                                                <a class="product-variant-order" name="${variant.id}">Сообщить о
+                                                    наличии</a>
+                                            </c:otherwise>
+                                        </c:choose>
+
+                                    </h2>
+                                </div>
                             </c:forEach>
                         </c:if>
                     </div>

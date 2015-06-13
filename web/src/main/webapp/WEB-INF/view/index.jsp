@@ -16,7 +16,7 @@
 <body>
 
 
-<jsp:include page="${lang}/header.jsp"/>
+<jsp:include page="${lang.lang}/header.jsp"/>
 <jsp:include page="path.jsp"/>
 <div id="container">
     <jsp:include page="menu.jsp"/>

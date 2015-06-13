@@ -15,13 +15,31 @@ public class OrderPoint {
 
     private int price;
 
-    public OrderPoint(long id, long variantId, int count, int price ) {
-        this.id = id;
+    private long orderId;
+
+    private String description;
+
+    public OrderPoint(long variantId, int count, int price) {
         this.variantId = variantId;
         this.count = count;
-        this.price=price;
+        this.price = price;
     }
 
+    public long getOrderId() {
+        return orderId;
+    }
+
+    public String getDescription() {
+        return description;
+    }
+
+    public void setDescription(String description) {
+        this.description = description;
+    }
+
+    public void setOrderId(long orderId) {
+        this.orderId = orderId;
+    }
 
     public int getPrice() {
         return price;

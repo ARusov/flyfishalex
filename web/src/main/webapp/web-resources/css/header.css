@@ -6,9 +6,10 @@
 }
 
 #logo-div {
-    width: 100%;
+    width: 40%;
     margin: 0 auto;
     position: relative;
+    float: left;
 }
 
 #logo-image {

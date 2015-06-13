@@ -37,4 +37,8 @@ public class AbstractController {
         }
         return false;
     }
+
+    protected org.flyfishalex.model.User getUser(){
+       return userService.getCurrentUser();
+    }
 }

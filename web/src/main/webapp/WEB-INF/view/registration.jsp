@@ -13,7 +13,7 @@
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
 </head>
 <body>
-<jsp:include page="${lang}/header.jsp"/>
+<jsp:include page="${lang.lang}/header.jsp"/>
 
 <div id="container">
 

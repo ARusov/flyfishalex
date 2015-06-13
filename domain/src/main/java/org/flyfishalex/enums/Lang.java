@@ -16,12 +16,13 @@ public enum Lang {
         this.context = context;
     }
 
-    public String getCode() {
-        return lang;
-    }
 
     public String getContext() {
         return context;
+    }
+
+    public String getLang() {
+        return lang;
     }
 
     public static Lang getLang(String langCode) {

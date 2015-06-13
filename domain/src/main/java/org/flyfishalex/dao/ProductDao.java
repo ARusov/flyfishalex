@@ -73,4 +73,9 @@ public class ProductDao {
         Query query = query(where("productId").is(productId));
         return operations.find(query, Variant.class);
     }
+
+    public Variant getVariant(long variantId) {
+        Query query = query(where("id").is(variantId));
+        return operations.findOne(query, Variant.class);
+    }
 }

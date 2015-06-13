@@ -76,8 +76,6 @@ public class ProductAdminController {
     @RequestMapping(value = "/product/{productId}/variant", method = RequestMethod.POST)
     private String saveVariant(@PathVariable("lang") String lang
             , @PathVariable("productId") long productId, Variant variant) {
-
-        System.out.println(variant.getId() + " : " + variant.getDescription());
         variant.setProductId(productId);
         productService.saveVariant(variant);
         return "redirect:" + Lang.getLang(lang).getContext() + "/admin/products/product/" + productId;

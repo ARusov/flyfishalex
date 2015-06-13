@@ -3,12 +3,12 @@
 <div id="menu">
     <ul id="menu-nav">
         <li class="menu-item-top">
-            <a href="${env}">${catalogue}</a>
+            <a href="${lang.context}">${catalogue}</a>
         </li>
         <c:if test="${not empty rootCategories}">
             <c:forEach var="rootCategory" items="${rootCategories}">
                 <li class="menu-item">
-                    <a href="${env}/category/${rootCategory.id}">${rootCategory.text}</a>
+                    <a href="${lang.context}/category/${rootCategory.id}">${rootCategory.text}</a>
                 </li>
                 <c:choose>
                     <c:when test="${not empty parentCategories}">
@@ -17,14 +17,14 @@
                             <c:forEach items="${parentCategories}" var="parentCategory">
                                 <li class="menu-item">
                                     <a class="menu-item-${i}"
-                                       href="${env}/category/${parentCategory.id}">${parentCategory.text}</a>
+                                       href="${lang.context}/category/${parentCategory.id}">${parentCategory.text}</a>
                                 </li>
                                 <c:if test="${not empty parent}">
                                     <c:if test="${parent.id==parentCategory.id}">
                                         <c:forEach items="${categories}" var="category">
                                             <li class="menu-item">
                                                 <a class="menu-item-${i+1}"
-                                                   href="${env}/category/${category.id}">${category.text}</a>
+                                                   href="${lang.context}/category/${category.id}">${category.text}</a>
                                             </li>
                                         </c:forEach>
                                     </c:if>
@@ -39,7 +39,7 @@
                                 <c:forEach items="${categories}" var="category">
                                     <li class="menu-item">
                                         <a class="menu-item-2"
-                                           href="${env}/category/${category.id}">${category.text}</a>
+                                           href="${lang.context}/category/${category.id}">${category.text}</a>
                                     </li>
                                 </c:forEach>
                             </c:if>

@@ -2,16 +2,21 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
 <div id="header">
-    <ul id="nav-panel">
-        <li class="nav-tab">
-            <a href="http://ya.ru" title="SSR Forum">Registration</a>
-        </li>
-        <li class="nav-tab">
-            <a href="http://ya.ru" title="SSR Forum">Login</a>
-        </li>
-    </ul>
+    <div id="nav-panel">
+        <c:choose>
+            <c:when test="${not empty user}">
+                    <a class="nav-tab" href="${lang.context}/user/cabinet/cart">Корзина</a>
+                    <a class="nav-tab" href="${lang.context}/user/logout">Выход</a>
+            </c:when>
+            <c:otherwise>
+                    <a class="nav-tab" href="${lang.context}/user/registration">Registration</a>
+                    <a class="nav-tab" href="${lang.context}/user/login" >Login</a>
+            </c:otherwise>
+        </c:choose>
+
+    </div>
     <div id="logo-div">
-        <a href="http://ya.ru" title="SSR Forum">
+        <a href="${lang.context}">
             <span id="logo-image"></span>
         </a>
     </div>

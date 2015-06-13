@@ -1,5 +1,6 @@
 package org.flyfishalex.controller;
 
+import org.flyfishalex.enums.Lang;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -12,7 +13,7 @@ public class ContactController {
     @RequestMapping(value = "/feedback")
     public ModelAndView getFeedback(@PathVariable("lang") String lang){
         ModelAndView mav= new ModelAndView("feedback");
-        mav.addObject("lang", lang);
+        mav.addObject("lang", Lang.getLang(lang));
         return mav;
     }
 }
