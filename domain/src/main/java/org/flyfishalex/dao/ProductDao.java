@@ -1,5 +1,6 @@
 package org.flyfishalex.dao;
 
+import org.flyfishalex.enums.Lang;
 import org.flyfishalex.model.Product;
 import org.flyfishalex.model.Variant;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -59,8 +60,8 @@ public class ProductDao {
     }
 
 
-    public List<Product> getProducts(long categoryId) {
-        Query query = query(where("categoryId").is(categoryId));
+    public List<Product> getProducts(long categoryId, Lang lang) {
+        Query query = query(where("categoryId").is(categoryId).and("stores").is(lang.getId()));
         return operations.find(query, Product.class);
 
     }

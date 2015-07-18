@@ -26,9 +26,7 @@
             <p>Категория: <form:select path="categoryId" id="id" items="${categories}"
                                        itemValue="id" itemLabel="name"/></p>
 
-            <p>Показывать на RU: <form:checkbox path="ru"/></p>
-
-            <p>Показывать на COM: <form:checkbox path="en"/></p>
+            <form:checkboxes path="stores" items="${stores}" itemValue="id" itemLabel="lang"/>
 
             <p><input type="submit" value="Добавить/Изменить"/></p>
         </form:form>

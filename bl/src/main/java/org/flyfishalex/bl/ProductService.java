@@ -1,6 +1,7 @@
 package org.flyfishalex.bl;
 
 import org.flyfishalex.dao.ProductDao;
+import org.flyfishalex.enums.Lang;
 import org.flyfishalex.model.Product;
 import org.flyfishalex.model.Variant;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -17,8 +18,8 @@ public class ProductService {
     @Autowired
     private ProductDao productDao;
 
-    public List<Product> getProducts(long productId) {
-        List<Product> products = productDao.getProducts(productId);
+    public List<Product> getProducts(long productId, Lang lang) {
+        List<Product> products = productDao.getProducts(productId, lang);
         return products;
     }
 

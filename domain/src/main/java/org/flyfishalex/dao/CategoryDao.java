@@ -1,5 +1,6 @@
 package org.flyfishalex.dao;
 
+import org.flyfishalex.enums.Lang;
 import org.flyfishalex.model.Category;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.mongodb.core.MongoOperations;
@@ -47,8 +48,8 @@ public class CategoryDao {
     }
 
 
-    public List<Category> getCategories(long parentId, String lang) {
-        Query query = query(where("parentId").is(parentId).and(lang).is(true));
+    public List<Category> getCategories(long parentId, Lang lang) {
+        Query query = query(where("parentId").is(parentId).and("stores").is(lang.getId()));
         return operations.find(query, Category.class);
     }
 
@@ -77,7 +78,7 @@ public class CategoryDao {
         return operations.find(query, Category.class);
     }
 
-    public List<Category> getParentCategories(long categoryId, String lang) {
+    public List<Category> getParentCategories(long categoryId, Lang lang) {
         List<Category> categories = new ArrayList<Category>();
         Category category = getCategory(categoryId, lang);
         if (category != null) {
@@ -100,8 +101,8 @@ public class CategoryDao {
         return categories;
     }
 
-    private Category getCategory(long categoryId, String lang) {
-        Query query = query(where("id").is(categoryId).and(lang).is(true));
+    private Category getCategory(long categoryId, Lang lang) {
+        Query query = query(where("id").is(categoryId).and("stores").is(lang.getId()));
         return operations.findOne(query, Category.class);
     }
 }

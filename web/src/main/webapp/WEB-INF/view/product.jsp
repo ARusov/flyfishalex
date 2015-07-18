@@ -2,13 +2,13 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <html>
 <head>
-    <link rel="stylesheet" href="<c:url value="/resources/css/global.css"/> ">
-    <link rel="stylesheet" href="<c:url value="/resources/css/header.css"/> ">
-    <link rel="stylesheet" href="<c:url value="/resources/css/product.css"/> ">
-    <link rel="stylesheet" href="<c:url value="/resources/css/footer.css"/> ">
-    <link rel="stylesheet" href="<c:url value="/resources/css/menu.css"/> ">
-    <script src="<c:url value="/resources/js/jquery-1.11.2.min.js"/> "></script>
-    <script src="<c:url value="/resources/js/product.js"/>"></script>
+    <link rel="stylesheet" href="<c:url value="${lang.resources}/resources/css/global.css"/> ">
+    <link rel="stylesheet" href="<c:url value="${lang.resources}/resources/css/header.css"/> ">
+    <link rel="stylesheet" href="<c:url value="${lang.resources}/resources/css/product.css"/> ">
+    <link rel="stylesheet" href="<c:url value="${lang.resources}/resources/css/footer.css"/> ">
+    <link rel="stylesheet" href="<c:url value="${lang.resources}/resources/css/menu.css"/> ">
+    <script src="<c:url value="${lang.resources}/resources/js/jquery-1.11.2.min.js"/> "></script>
+    <script src="<c:url value="${lang.resources}/resources/js/product.js"/>"></script>
     <title>???TODO</title>
 </head>
 <body>

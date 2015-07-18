@@ -38,11 +38,11 @@ public class ProductController extends AbstractController {
             long categoryId=product.getCategoryId();
             mav.addObject("product", product);
             mav.addObject("variants", productService.getVariants(productId));
-            mav.addObject("rootCategories", categoryService.getCategories(0, lang));
-            mav.addObject("categories", categoryService.getCategories(categoryId, lang));
+            mav.addObject("rootCategories", categoryService.getCategories(0, Lang.getLang(lang)));
+            mav.addObject("categories", categoryService.getCategories(categoryId, Lang.getLang(lang)));
             mav.addObject("parent", categoryService.getCategory(categoryId, lang));
-            mav.addObject("parentCategories", categoryService.getParentCategories(categoryId, lang));
-            mav.addObject("products", productService.getProducts(categoryId));
+            mav.addObject("parentCategories", categoryService.getParentCategories(categoryId, Lang.getLang(lang)));
+            mav.addObject("products", productService.getProducts(categoryId, Lang.getLang(lang)));
             mav.addObject("lang", Lang.getLang(lang));
             if (Lang.RU == Lang.getLang(lang)) {
                 mav.addObject("catalogue", "Каталог");

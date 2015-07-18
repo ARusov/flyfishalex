@@ -1,6 +1,7 @@
 package org.flyfishalex.bl;
 
 import org.flyfishalex.dao.OrderDao;
+import org.flyfishalex.enums.Lang;
 import org.flyfishalex.model.*;
 import org.flyfishalex.model.dto.OrderDTO;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -21,10 +22,11 @@ public class OrderService {
     @Autowired
     private UserService userService;
 
-    public void addToBasket(Variant variant, User user) {
+    public void addToBasket(Variant variant, User user, Lang lang) {
         Order order = orderDao.getBasketOrder(user.getId(), 0);
         if (order == null) {
             order = new Order();
+            order.setStore(lang.getId());
             order.setUserId(user.getId());
 
         }

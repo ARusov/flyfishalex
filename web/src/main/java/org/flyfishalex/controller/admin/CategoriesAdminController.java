@@ -28,7 +28,7 @@ public class CategoriesAdminController extends AbstractController {
     public ModelAndView getCategories(@RequestParam(value = "categoryId", required = false) Long categoryId) {
         ModelAndView mav = new ModelAndView("admin");
         if(!checkRole("ROLE_USER")){
-            return new ModelAndView("redirect:"+ Lang.getLang("ru").getContext()+"/user/login");
+//            return new ModelAndView("redirect:"+ Lang.getLang("ru").getContext()+"/user/login");
         }
         Category category = null;
         if (categoryId == null) {
@@ -44,6 +44,7 @@ public class CategoriesAdminController extends AbstractController {
         List<Category> categories = categoryService.getCategories();
         categories.add(new Category());
         mav.addObject("categories", categories);
+        mav.addObject("stores", Lang.values());
         return mav;
     }
 
@@ -90,7 +91,7 @@ public class CategoriesAdminController extends AbstractController {
     @ResponseBody
     String deleteCategory(@RequestParam(value = "categoryId", required = false) Long categoryId) {
         if (categoryId != null) {
-            List<CategoryDTO> childs = categoryService.getCategories(categoryId, "ru");
+            List<CategoryDTO> childs = categoryService.getCategories(categoryId, Lang.getLang("ru"));
             if (childs == null || childs.size() > 0) {
                 return "Please remove child before";
 

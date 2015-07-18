@@ -4,6 +4,9 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 
+import java.util.ArrayList;
+import java.util.List;
+
 /**
  * Created by arusov on 4/1/2015.
  */
@@ -21,10 +24,20 @@ public class Category {
 
     private boolean en;
 
+    private List<Integer>stores= new ArrayList<Integer>();
+
     private long parentId;
 
     private String articul1c;
 
+
+    public List<Integer> getStores() {
+        return stores;
+    }
+
+    public void setStores(List<Integer> stores) {
+        this.stores = stores;
+    }
 
     public boolean isRu() {
         return ru;

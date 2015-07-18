@@ -5,15 +5,21 @@ package org.flyfishalex.enums;
  */
 public enum Lang {
 
-    //    RU("ru","http://flyfishalex.ru"),
-    RU("ru", "http://localhost:8080/flyfishalex/ru"),
-    EN("en", "http://flyfishalex.com");
+        RU(1,"ru","http://flyfishalex.com","http://resources.flyfishalex.com"),
+//    RU(1, "ru", "http://localhost:8080/flyfishalex/ru","http://localhost:8080/flyfishalex"),
+    EN(2, "en", "http://flyfishalex.com","http://resources.flyfishalex.com"),
+    NORTHBAY(3, "norhbay", "http://norhbay.ru","http://resources.norhbay.com");
+
+    private final int id;
     private final String lang;
     private final String context;
+    private final String resources;
 
-    private Lang(final String lang, String context) {
+    private Lang(int id, final String lang, String context, String resources) {
+        this.id = id;
         this.lang = lang;
         this.context = context;
+        this.resources = resources;
     }
 
 
@@ -23,6 +29,14 @@ public enum Lang {
 
     public String getLang() {
         return lang;
+    }
+
+    public int getId() {
+        return id;
+    }
+
+    public String getResources() {
+        return resources;
     }
 
     public static Lang getLang(String langCode) {

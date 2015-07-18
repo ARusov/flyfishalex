@@ -1,9 +1,9 @@
 package org.flyfishalex.model;
 
 import org.springframework.data.annotation.Id;
-import org.springframework.data.mongodb.core.mapping.DBRef;
 import org.springframework.data.mongodb.core.mapping.Document;
 
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -31,25 +31,15 @@ public class Product {
 
     private long categoryId;
 
-    private boolean ru;
-
-    private boolean en;
+    private List<Integer> stores = new ArrayList<Integer>();
 
 
-    public boolean isRu() {
-        return ru;
+    public List<Integer> getStores() {
+        return stores;
     }
 
-    public void setRu(boolean ru) {
-        this.ru = ru;
-    }
-
-    public boolean isEn() {
-        return en;
-    }
-
-    public void setEn(boolean en) {
-        this.en = en;
+    public void setStores(List<Integer> stores) {
+        this.stores = stores;
     }
 
     public String getNameEn() {

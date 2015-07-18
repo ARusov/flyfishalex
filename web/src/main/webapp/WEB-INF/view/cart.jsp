@@ -5,11 +5,11 @@
 
 <html>
 <head>
-    <link rel="stylesheet" href="<c:url value="/resources/css/global.css"/> ">
-    <link rel="stylesheet" href="<c:url value="/resources/css/header.css"/> ">
-    <link rel="stylesheet" href="<c:url value="/resources/css/header.css"/> ">
-    <link rel="stylesheet" href="<c:url value="/resources/css/footer.css"/> ">
-    <link rel="stylesheet" href="<c:url value="/resources/css/cart.css"/> ">
+    <link rel="stylesheet" href="<c:url value="${lang.resources}/resources/css/global.css"/> ">
+    <link rel="stylesheet" href="<c:url value="${lang.resources}/resources/css/header.css"/> ">
+    <link rel="stylesheet" href="<c:url value="${lang.resources}/resources/css/header.css"/> ">
+    <link rel="stylesheet" href="<c:url value="${lang.resources}/resources/css/footer.css"/> ">
+    <link rel="stylesheet" href="<c:url value="${lang.resources}/resources/css/cart.css"/> ">
     <title>Магазин</title>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
 </head>

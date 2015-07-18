@@ -5,14 +5,14 @@
 
 <html>
 <head>
-    <link rel="stylesheet" href="<c:url value="/resources/css/admin.css"/> ">
-    <link rel="stylesheet" href="<c:url value="/resources/css/global.css"/> ">
-    <link rel="stylesheet" href="<c:url value="/resources/js/themes/default/style.min.css"/> ">
+    <link rel="stylesheet" href="<c:url value="${lang.resources}/resources/css/admin.css"/> ">
+    <link rel="stylesheet" href="<c:url value="${lang.resources}/resources/css/global.css"/> ">
+    <link rel="stylesheet" href="<c:url value="${lang.resources}/resources/js/themes/default/style.min.css"/> ">
 
 
-    <script src="<c:url value="/resources/js/jquery-1.11.2.min.js"/> "></script>
-    <script src="<c:url value="/resources/js/jstree.min.js"/> "></script>
-    <script src="<c:url value="/resources/js/admin.js"/>"></script>
+    <script src="<c:url value="${lang.resources}/resources/js/jquery-1.11.2.min.js"/> "></script>
+    <script src="<c:url value="${lang.resources}/resources/js/jstree.min.js"/> "></script>
+    <script src="<c:url value="${lang.resources}/resources/js/admin.js"/>"></script>
 
 
     <title>Магазин</title>
@@ -34,9 +34,13 @@
                 <p>Родительская категория: <form:select path="parentId" id="id" items="${categories}"
                                                         itemValue="id" itemLabel="name"/>
                 </p>
+
                 <p>Английское наименование: <form:input path="nameEn"/></p>
-                <p>Отображать на российском сайте: <form:checkbox  path="ru"/></p>
+
+                <p>Отображать на российском сайте: <form:checkbox path="ru"/></p>
+
                 <p>Отображать на европейском сайте: <form:checkbox path="en"/></p>
+                <form:checkboxes path="stores" items="${stores}" itemValue="id" itemLabel="lang"/>
                 <input type="submit" value="Изменить/Добавить"/>
             </form:form>
         </div>

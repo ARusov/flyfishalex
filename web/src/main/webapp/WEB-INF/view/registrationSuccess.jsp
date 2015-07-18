@@ -13,18 +13,10 @@
 </head>
 <body>
 <jsp:include page="${lang.lang}/header.jsp"/>
-<div id="orders">
-    <c:if test="${not empty orders}">
-        <table>
-            <c:forEach items="${orders}" var="order">
-                <tr>
-                    <td>${order.id}</td>
-                    <td>${order.status}</td>
-                    <td>Подробнее</td>
-                </tr>
-            </c:forEach>
-        </table>
-    </c:if>
+<div id="container">
+    <h2>Спасибо за регистрацию на сайте</h2>
+    <p>Перейти в личный кабинет</p>
+    <p>Перейти на главную</p>
 </div>
 </body>
 </html>

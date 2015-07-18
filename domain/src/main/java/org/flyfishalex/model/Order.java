@@ -32,6 +32,16 @@ public class Order {
 
     private int deliveryPrice;
 
+    private int store;
+
+    public int getStore() {
+        return store;
+    }
+
+    public void setStore(int store) {
+        this.store = store;
+    }
+
     public int getDeliveryPrice() {
         return deliveryPrice;
     }

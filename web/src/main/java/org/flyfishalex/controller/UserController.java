@@ -55,7 +55,7 @@ public class UserController extends AbstractController {
             userService.createUser(user);
         }
 
-        return "redirect:" + Lang.getLang(lang).getContext();
+        return "redirect:" + Lang.getLang(lang).getContext()+"/user/registration/success";
     }
 
 
@@ -77,7 +77,7 @@ public class UserController extends AbstractController {
         if (variant.getCount() <= 0) {
             //TODO: count <1
         }
-        orderService.addToBasket(variant, user);
+        orderService.addToBasket(variant, user, Lang.getLang(lang));
         return "redirect:"+Lang.getLang(lang).getContext()+"/user/cabinet/cart";
     }
 

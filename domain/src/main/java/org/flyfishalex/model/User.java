@@ -22,6 +22,16 @@ public class User {
 
     private String lang;
 
+    private boolean active;
+
+    public boolean getActive() {
+        return active;
+    }
+
+    public void setActive(boolean active) {
+        this.active = active;
+    }
+
     public String getLang() {
         return lang;
     }

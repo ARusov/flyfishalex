@@ -54,10 +54,11 @@ public class ProductAdminController {
         mav.addObject("variants", productService.getVariants(productId));
         mav.addObject("newVariant", new Variant());
         mav.addObject("categories", categoryService.getCategories());
+        mav.addObject("stores", Lang.values());
         return mav;
     }
 
-    @RequestMapping(value = "/product", method = RequestMethod.POST)
+    @RequestMapping(value = "/product/{productId}", method = RequestMethod.POST)
     public String createProduct(@ModelAttribute Product product) {
 
         productService.saveProduct(product);
@@ -68,7 +69,7 @@ public class ProductAdminController {
         } catch (JsonProcessingException e) {
             e.printStackTrace();
         }
-        return "redirect:http://localhost:8080/flyfishalex/ru/admin/products";
+        return "redirect:http://localhost:8080/flyfishalex/ru/admin/products/product/"+product.getId();
 
     }
 
