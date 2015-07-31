@@ -1,4 +1,4 @@
-package org.flyfishalex.model;
+package org.flyfishalex.convert.model;
 
 /**
  * Created by arusov on 2/25/2015.

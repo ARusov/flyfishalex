@@ -2,11 +2,10 @@ package org.flyfishalex.controller;
 
 import org.flyfishalex.bl.CategoryService;
 import org.flyfishalex.bl.ProductService;
-import org.flyfishalex.enums.Lang;
 import org.flyfishalex.model.Product;
+import org.flyfishalex.enums.Lang;
 import org.flyfishalex.model.User;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.core.env.Environment;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -22,8 +21,6 @@ public class ProductController extends AbstractController {
     @Autowired
     private CategoryService categoryService;
 
-    @Autowired
-    private Environment environment;
 
     @Autowired
     private ProductService productService;
@@ -44,10 +41,10 @@ public class ProductController extends AbstractController {
             mav.addObject("parentCategories", categoryService.getParentCategories(categoryId, Lang.getLang(lang)));
             mav.addObject("products", productService.getProducts(categoryId, Lang.getLang(lang)));
             mav.addObject("lang", Lang.getLang(lang));
-            if (Lang.RU == Lang.getLang(lang)) {
-                mav.addObject("catalogue", "Каталог");
-            } else {
+            if (Lang.EN == Lang.getLang(lang)) {
                 mav.addObject("catalogue", "Catalogue");
+            } else {
+                mav.addObject("catalogue", "Каталог");
             }
             User user= getUser();
             if(user!=null){

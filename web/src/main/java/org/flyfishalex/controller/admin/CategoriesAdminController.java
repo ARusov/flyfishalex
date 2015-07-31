@@ -3,9 +3,14 @@ package org.flyfishalex.controller.admin;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import org.flyfishalex.bl.CategoryService;
+import org.flyfishalex.bl.ProductService;
 import org.flyfishalex.controller.AbstractController;
+import org.flyfishalex.convert.parser.rybolovorg.RybolovCategory;
+import org.flyfishalex.convert.parser.rybolovorg.RybolovParser;
 import org.flyfishalex.enums.Lang;
+import org.flyfishalex.enums.Provider;
 import org.flyfishalex.model.Category;
+import org.flyfishalex.model.Product;
 import org.flyfishalex.model.dto.CategoryDTO;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -27,7 +32,7 @@ public class CategoriesAdminController extends AbstractController {
     @RequestMapping(value = "/categories", method = RequestMethod.GET)
     public ModelAndView getCategories(@RequestParam(value = "categoryId", required = false) Long categoryId) {
         ModelAndView mav = new ModelAndView("admin");
-        if(!checkRole("ROLE_USER")){
+        if (!checkRole("ROLE_USER")) {
 //            return new ModelAndView("redirect:"+ Lang.getLang("ru").getContext()+"/user/login");
         }
         Category category = null;
@@ -103,4 +108,5 @@ public class CategoriesAdminController extends AbstractController {
         }
         return "Category has been removed";
     }
+
 }

@@ -1,4 +1,4 @@
-package org.flyfishalex.parser.swimbox;
+package org.flyfishalex.convert.parser.swimbox;
 
 import javax.xml.bind.annotation.XmlAttribute;
 import javax.xml.bind.annotation.XmlElement;

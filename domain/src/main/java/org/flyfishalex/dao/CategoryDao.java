@@ -82,15 +82,15 @@ public class CategoryDao {
         List<Category> categories = new ArrayList<Category>();
         Category category = getCategory(categoryId, lang);
         if (category != null) {
-            if (category.getParentId()>0){
-                categories.add(0,category);
+            if (category.getParentId() > 0) {
+                categories.add(0, category);
             }
             long parentId = category.getParentId();
             while (parentId > 0) {
                 category = getCategory(parentId, lang);
                 if (category != null) {
-                    if (category.getParentId()>0){
-                        categories.add(0,category);
+                    if (category.getParentId() > 0) {
+                        categories.add(0, category);
                     }
                     parentId = category.getParentId();
                 } else {
@@ -103,6 +103,11 @@ public class CategoryDao {
 
     private Category getCategory(long categoryId, Lang lang) {
         Query query = query(where("id").is(categoryId).and("stores").is(lang.getId()));
+        return operations.findOne(query, Category.class);
+    }
+
+    public Category getByVendorParentId(String vendorParentId) {
+        Query query = query(where("vendorId").is(vendorParentId));
         return operations.findOne(query, Category.class);
     }
 }

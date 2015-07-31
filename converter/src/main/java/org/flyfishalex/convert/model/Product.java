@@ -1,4 +1,4 @@
-package org.flyfishalex.model;
+package org.flyfishalex.convert.model;
 
 
 import java.util.HashMap;

@@ -29,11 +29,11 @@ public class CategoryService {
         CategoryDTO categoryDTO = new CategoryDTO();
         if (category != null) {
             categoryDTO.setId(String.valueOf(category.getId()));
-            if (lang==Lang.RU){
-                categoryDTO.setText(category.getName());
-            }
+
             if (lang==Lang.EN){
                 categoryDTO.setText(category.getNameEn());
+            }else {
+                    categoryDTO.setText(category.getName());
             }
             categoryDTO.setParent(String.valueOf(category.getParentId()));
         }
@@ -85,9 +85,6 @@ public class CategoryService {
     }
 
     public void createCategory(Category category) {
-
-        category.getStores().add(1);
-        category.getStores().add(2);
         categoryDao.createCategory(category);
     }
 
@@ -112,5 +109,9 @@ public class CategoryService {
                }
         }
         return convertCategories(categories, lang);
+    }
+
+    public Category getByVendorParentId(String vendorParentId) {
+      return   categoryDao.getByVendorParentId(vendorParentId);
     }
 }

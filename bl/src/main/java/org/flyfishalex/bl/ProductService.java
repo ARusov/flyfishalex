@@ -47,4 +47,12 @@ public class ProductService {
     public Variant getVariant(long variantId) {
         return productDao.getVariant(variantId);
     }
+
+    public Product getProductByVendor(String article) {
+        return productDao.getProductByVendor(article);
+    }
+
+    public List<Product> getLastProducts(int count, Lang lang) {
+        return productDao.getLastProducts(count, lang);
+    }
 }

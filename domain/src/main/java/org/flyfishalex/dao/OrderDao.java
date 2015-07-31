@@ -1,9 +1,9 @@
 package org.flyfishalex.dao;
 
 
+import org.flyfishalex.model.OrderPoint;
 import org.flyfishalex.model.Delivery;
 import org.flyfishalex.model.Order;
-import org.flyfishalex.model.OrderPoint;
 import org.flyfishalex.model.Payment;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.mongodb.core.MongoOperations;

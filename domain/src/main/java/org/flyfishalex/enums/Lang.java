@@ -5,10 +5,13 @@ package org.flyfishalex.enums;
  */
 public enum Lang {
 
-        RU(1,"ru","http://flyfishalex.com","http://resources.flyfishalex.com"),
-//    RU(1, "ru", "http://localhost:8080/flyfishalex/ru","http://localhost:8080/flyfishalex"),
-    EN(2, "en", "http://flyfishalex.com","http://resources.flyfishalex.com"),
-    NORTHBAY(3, "norhbay", "http://norhbay.ru","http://resources.norhbay.com");
+    RU(1, "ru", "http://flyfishalex.com", "http://resources.flyfishalex.com"),
+    //    RU(1, "ru", "http://localhost:8080/flyfishalex/ru","http://localhost:8080/flyfishalex"),
+    EN(2, "en", "http://flyfishalex.com", "http://resources.flyfishalex.com"),
+    //    NORTHBAY(3, "northbay", "http://localhost:8080/flyfishalex/northbay","http://localhost:8080/flyfishalex"),
+    NORTHBAY(3, "northbay", "http://northbay.ru", "http://resources.northbay.ru"),
+    //    NORDBAY(3, "nordbay", "http://nordbay.ru","http://resources.nordbay.ru");
+    NORDBAY(3, "nordbay", "http://localhost:8080/flyfishalex/nordbay", "http://localhost:8080/flyfishalex");
 
     private final int id;
     private final String lang;
@@ -22,6 +25,14 @@ public enum Lang {
         this.resources = resources;
     }
 
+    public static Lang getLang(String langCode) {
+        for (Lang c : Lang.values()) {
+            if (c.lang.equals(langCode)) {
+                return c;
+            }
+        }
+        return RU;
+    }
 
     public String getContext() {
         return context;
@@ -37,14 +48,5 @@ public enum Lang {
 
     public String getResources() {
         return resources;
-    }
-
-    public static Lang getLang(String langCode) {
-        for (Lang c : Lang.values()) {
-            if (c.lang.equals(langCode)) {
-                return c;
-            }
-        }
-        return RU;
     }
 }

@@ -23,9 +23,9 @@
                 <c:forEach var="category" items="${categories}">
                     <div class="item">
                         <div class="item-image">
-                            <a><img src="http://localhost:8080/flyfishalex/resources/images/nofoto.png"></a>
+                            <a><img src="${lang.resources}/resources/images/nofoto.png"></a>
                         </div>
-                        <span><a href="${env}/category/${category.id}">${category.text}</a></span>
+                        <span><a href="${lang.context}/category/${category.id}">${category.text}</a></span>
                     </div>
                 </c:forEach>
             </c:when>
@@ -34,9 +34,9 @@
                 <c:forEach var="product" items="${products}">
                     <div class="item">
                         <div class="item-image">
-                            <a><img src="http://localhost:8080/flyfishalex/resources/images/nofoto.png"></a>
+                            <a><img src="${lang.resources}/resources/images/nofoto.png"></a>
                         </div>
-                        <span><a href="${env}/product/${product.id}">${product.name}</a></span>
+                        <span><a href="${lang.context}/product/${product.id}">${product.name}</a></span>
                     </div>
                 </c:forEach>
             </c:when>

@@ -4,6 +4,7 @@ import org.flyfishalex.enums.Lang;
 import org.flyfishalex.model.Product;
 import org.flyfishalex.model.Variant;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Sort;
 import org.springframework.data.mongodb.core.MongoOperations;
 import org.springframework.data.mongodb.core.query.Query;
 import org.springframework.stereotype.Repository;
@@ -78,5 +79,17 @@ public class ProductDao {
     public Variant getVariant(long variantId) {
         Query query = query(where("id").is(variantId));
         return operations.findOne(query, Variant.class);
+    }
+
+    public Product getProductByVendor(String article) {
+        Query query = query(where("article").is(article));
+        return operations.findOne(query, Product.class);
+    }
+
+    public List<Product> getLastProducts(int count, Lang lang) {
+        Query query = query(where("stores").is(lang.getId()));
+        query.limit(count);
+        query.with(new Sort(Sort.Direction.DESC,"id"));
+        return operations.find(query, Product.class);
     }
 }

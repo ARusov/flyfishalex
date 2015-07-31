@@ -1,12 +1,9 @@
 package org.flyfishalex.controller;
 
 import org.flyfishalex.bl.CategoryService;
-import org.flyfishalex.controller.exception.UserNotFoundException;
+import org.flyfishalex.bl.ProductService;
 import org.flyfishalex.enums.Lang;
-import org.flyfishalex.model.User;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.core.env.Environment;
-import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -20,18 +17,20 @@ public class IndexController extends AbstractController {
     private CategoryService categoryService;
 
     @Autowired
-    private Environment environment;
+    private ProductService productService;
+
 
     @RequestMapping(value = {"/", "/index", ""})
     public ModelAndView getIndex(@PathVariable("lang") String lang) {
         ModelAndView mav = new ModelAndView("index");
         mav.addObject("rootCategories", categoryService.getCategories(0, Lang.getLang(lang)));
         mav.addObject("user", getUser());
+        mav.addObject("products", productService.getLastProducts(40,Lang.getLang(lang)));
         mav.addObject("lang", Lang.getLang(lang));
-        if (Lang.RU == Lang.getLang(lang)) {
-            mav.addObject("catalogue", "Каталог");
-        }else {
+        if (Lang.EN == Lang.getLang(lang)) {
             mav.addObject("catalogue", "Catalogue");
+        }else {
+            mav.addObject("catalogue", "Каталог");
         }
         return mav;
     }

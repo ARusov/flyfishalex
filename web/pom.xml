@@ -17,7 +17,11 @@
             <artifactId>bl</artifactId>
             <version>${project.version}</version>
         </dependency>
-
+        <dependency>
+            <groupId>org.flyfishalex</groupId>
+            <artifactId>converter</artifactId>
+            <version>${project.version}</version>
+        </dependency>
         <dependency>
             <groupId>org.springframework</groupId>
             <artifactId>spring-webmvc</artifactId>
@@ -53,7 +57,7 @@
             <artifactId>spring-security-config</artifactId>
         </dependency>
     </dependencies>
-<build>
-    <finalName>flyfishalex</finalName>
-</build>
+    <build>
+        <finalName>flyfishalex</finalName>
+    </build>
 </project>

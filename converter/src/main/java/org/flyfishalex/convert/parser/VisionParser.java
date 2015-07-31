@@ -1,9 +1,9 @@
-package org.flyfishalex.parser;
+package org.flyfishalex.convert.parser;
 
 import au.com.bytecode.opencsv.CSVReader;
 import org.apache.poi.ss.usermodel.Row;
-import org.flyfishalex.converter.Parser;
-import org.flyfishalex.model.Product;
+import org.flyfishalex.convert.converter.Parser;
+import org.flyfishalex.convert.model.Product;
 
 import java.io.File;
 import java.io.FileReader;

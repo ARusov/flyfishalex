@@ -1,10 +1,10 @@
-package org.flyfishalex.converter;
+package org.flyfishalex.convert.converter;
 
 import au.com.bytecode.opencsv.CSVReader;
 import org.apache.poi.hssf.usermodel.HSSFWorkbook;
 import org.apache.poi.ss.usermodel.*;
-import org.flyfishalex.model.Price;
-import org.flyfishalex.model.Product;
+import org.flyfishalex.convert.model.Price;
+import org.flyfishalex.convert.model.Product;
 
 import java.io.*;
 import java.text.DateFormat;

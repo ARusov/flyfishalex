@@ -28,8 +28,11 @@ public class Category {
 
     private long parentId;
 
-    private String articul1c;
+    private String vendorId;
 
+
+    public Category() {
+    }
 
     public List<Integer> getStores() {
         return stores;
@@ -64,12 +67,12 @@ public class Category {
     }
 
 
-    public String getArticul1c() {
-        return articul1c;
+    public String getVendorId() {
+        return vendorId;
     }
 
-    public void setArticul1c(String articul1c) {
-        this.articul1c = articul1c;
+    public void setVendorId(String vendorId) {
+        this.vendorId = vendorId;
     }
 
     public long getParentId() {
@@ -100,4 +103,6 @@ public class Category {
     public String toString() {
         return super.toString();
     }
+
+
 }

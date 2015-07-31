@@ -1,7 +1,7 @@
-package org.flyfishalex.parser;
+package org.flyfishalex.convert.parser;
 
 import org.apache.poi.ss.usermodel.Row;
-import org.flyfishalex.model.Product;
+import org.flyfishalex.convert.model.Product;
 
 import java.io.File;
 import java.util.ArrayList;

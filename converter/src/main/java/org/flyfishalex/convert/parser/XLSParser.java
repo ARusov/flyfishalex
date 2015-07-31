@@ -1,8 +1,8 @@
-package org.flyfishalex.parser;
+package org.flyfishalex.convert.parser;
 
 import org.apache.poi.hssf.usermodel.HSSFWorkbook;
 import org.apache.poi.ss.usermodel.*;
-import org.flyfishalex.model.Product;
+import org.flyfishalex.convert.model.Product;
 
 import java.io.*;
 import java.text.DateFormat;

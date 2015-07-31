@@ -54,6 +54,10 @@ font-weight: normal;
     margin: 0;
     padding: 0;
 }
+h2 span{
+    margin-left: 10px;
+    font-size: 120%;
+}
 
 #product-description{
     border-top: gainsboro thin solid;

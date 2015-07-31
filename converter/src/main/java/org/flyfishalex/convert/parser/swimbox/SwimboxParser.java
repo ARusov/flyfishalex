@@ -1,6 +1,7 @@
-package org.flyfishalex.parser.swimbox;
+package org.flyfishalex.convert.parser.swimbox;
 
-import org.flyfishalex.model.Product;
+
+import org.flyfishalex.convert.model.Product;
 
 import javax.xml.bind.JAXBContext;
 import javax.xml.bind.JAXBException;
@@ -12,10 +13,7 @@ import javax.xml.transform.stream.StreamSource;
 import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
-import java.text.DateFormat;
-import java.text.SimpleDateFormat;
 import java.util.ArrayList;
-import java.util.Date;
 import java.util.List;
 
 /**
