@@ -1,159 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="594e0c7e-40c7-49a1-b133-5f356ff6271c" name="Default" comment="web">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/src/main/webapp/web-resources/bootstrap/fonts/glyphicons-halflings-regular.eot" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/src/main/webapp/web-resources/bootstrap/fonts/glyphicons-halflings-regular.ttf" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/src/main/webapp/web-resources/bootstrap/fonts/glyphicons-halflings-regular.woff2" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/src/main/webapp/web-resources/bootstrap/fonts/glyphicons-halflings-regular.woff" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/converter/input/Свободные-остатки-на-20.07.2015.xls" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/bl/src/main/java/org/flyfishalex/bl/EmailService.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/converter/src/main/java/org/flyfishalex/convert/parser/Importer.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/converter/src/main/java/org/flyfishalex/convert/Main.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__commons_logging_commons_logging_1_1.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__commons_logging_commons_logging_1_1_1.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__javax_activation_activation_1_0_2.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__javax_activation_activation_1_1.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__javax_mail_mail_1_4.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__javax_xml_stream_stax_api_1_0_2.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__log4j_log4j_1_2_17.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_slf4j_slf4j_api_1_7_1.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_slf4j_slf4j_log4j12_1_7_1.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_ws_spring_oxm_1_0_rc2.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_ws_spring_oxm_1_5_10.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_ws_spring_xml_1_0_rc2.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_ws_spring_xml_1_5_10.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/src/main/java/org/flyfishalex/controller/exception/OrderNotFoundException.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/converter/src/main/java/org/flyfishalex/convert/parser/rybolovorg/RybolovImporter.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/domain/src/main/java/org/flyfishalex/model/Sitemap.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/domain/src/main/java/org/flyfishalex/model/SitemapIndex.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/domain/src/main/java/org/flyfishalex/model/SitemapLoc.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/domain/src/main/java/org/flyfishalex/model/SitemapURL.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/domain/src/main/java/org/flyfishalex/model/YandexAvisoResponse.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/domain/src/main/java/org/flyfishalex/model/YandexCheckResponse.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/src/main/java/org/flyfishalex/controller/YandexController.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/domain/src/main/java/org/flyfishalex/model/YandexRequestParams.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/converter/src/main/resources/applicationContext.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/src/main/webapp/web-resources/bootstrap/css/bootstrap-theme.css.map" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/src/main/webapp/web-resources/bootstrap/css/bootstrap-theme.css" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/src/main/webapp/web-resources/bootstrap/css/bootstrap-theme.min.css" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/src/main/webapp/web-resources/bootstrap/css/bootstrap.css.map" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/src/main/webapp/web-resources/bootstrap/css/bootstrap.css" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/src/main/webapp/web-resources/bootstrap/js/bootstrap.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/src/main/webapp/web-resources/bootstrap/css/bootstrap.min.css" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/src/main/webapp/web-resources/bootstrap/js/bootstrap.min.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/src/main/webapp/web-resources/css/cabinet.css" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/src/main/webapp/web-resources/js/cabinet.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/src/main/webapp/WEB-INF/view/cabinet.jsp" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/src/main/webapp/WEB-INF/view/cabinetMenu.jsp" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/codeStyleSettings.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/src/main/webapp/WEB-INF/view/confirmEmail.jsp" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/src/main/webapp/WEB-INF/view/error.jsp" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/src/main/webapp/WEB-INF/view/footer.jsp" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/src/main/webapp/web-resources/bootstrap/fonts/glyphicons-halflings-regular.svg" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/src/main/webapp/web-resources/js/jMenu.jquery.min.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/src/main/webapp/web-resources/js/jquery-2.1.4.min.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/src/main/webapp/web-resources/js/jquery-ui.min.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/src/main/webapp/web-resources/js/jquery.jcarousel.min.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/src/main/resources/log4j.properties" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/src/main/webapp/WEB-INF/view/admin/menu.jsp" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/src/main/webapp/WEB-INF/view/navigation.jsp" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/bl/src/main/resources/mail/northbay_registration.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/src/main/resources/mail/northbay_registration.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/src/main/webapp/web-resources/bootstrap/js/npm.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/src/main/webapp/WEB-INF/view/admin/order.jsp" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/src/main/webapp/WEB-INF/view/en/payment.jsp" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/src/main/webapp/WEB-INF/view/nordbay/payment.jsp" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/src/main/webapp/WEB-INF/view/northbay/payment.jsp" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/src/main/webapp/WEB-INF/view/ru/payment.jsp" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/src/main/webapp/WEB-INF/view/paymentSuccess.jsp" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/src/main/webapp/web-resources/css/registration.css" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/src/main/webapp/web-resources/js/registration.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/src/main/webapp/WEB-INF/view/verticalMenu.jsp" />
-      <change type="DELETED" beforePath="C:\Projects\flyfishalex\converter\input\Свободные-остатки-на-04.03.2015.xls" afterPath="" />
-      <change type="DELETED" beforePath="C:\Projects\flyfishalex\converter\input\Свободные-остатки-на-08.04.2015.xls" afterPath="" />
-      <change type="DELETED" beforePath="C:\Projects\flyfishalex\converter\input\Свободные-остатки-на-09.02.xls" afterPath="" />
-      <change type="DELETED" beforePath="C:\Projects\flyfishalex\converter\input\Свободные-остатки-на-18.03.2015.xls" afterPath="" />
-      <change type="DELETED" beforePath="C:\Projects\flyfishalex\converter\input\Свободные-остатки-на-20.04.2014.xls" afterPath="" />
-      <change type="DELETED" beforePath="C:\Projects\flyfishalex\converter\input\Свободные-остатки-на-25.02.2015.xls" afterPath="" />
-      <change type="DELETED" beforePath="C:\Projects\flyfishalex\domain\src\main\resources\application-context.xml" afterPath="" />
-      <change type="DELETED" beforePath="C:\Projects\flyfishalex\web\src\main\java\org\flyfishalex\controller\admin\ImportController.java" afterPath="" />
-      <change type="DELETED" beforePath="C:\Projects\flyfishalex\web\src\main\webapp\WEB-INF\spring-security.xml" afterPath="" />
-      <change type="DELETED" beforePath="C:\Projects\flyfishalex\web\src\main\webapp\WEB-INF\view\payment.jsp" afterPath="" />
-      <change type="DELETED" beforePath="C:\Projects\flyfishalex\web\src\main\webapp\web-resources\css\cart.css" afterPath="" />
-      <change type="MOVED" beforePath="C:\Projects\flyfishalex\web\src\main\webapp\WEB-INF\view\admin.jsp" afterPath="$PROJECT_DIR$/web/src/main/webapp/WEB-INF/view/admin/categories.jsp" />
-      <change type="MOVED" beforePath="C:\Projects\flyfishalex\web\src\main\webapp\WEB-INF\view\northbay\header.jsp" afterPath="$PROJECT_DIR$/web/src/main/webapp/WEB-INF/view/nordbay/header.jsp" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/converter/input/наличие VISION и KEEPER.xls" afterPath="$PROJECT_DIR$/converter/input/наличие VISION и KEEPER.xls" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/web/src/main/java/org/flyfishalex/controller/AbstractController.java" afterPath="$PROJECT_DIR$/web/src/main/java/org/flyfishalex/controller/AbstractController.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/web/src/main/java/org/flyfishalex/controller/admin/CategoriesAdminController.java" afterPath="$PROJECT_DIR$/web/src/main/java/org/flyfishalex/controller/admin/CategoriesAdminController.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/domain/src/main/java/org/flyfishalex/model/Category.java" afterPath="$PROJECT_DIR$/domain/src/main/java/org/flyfishalex/model/Category.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/web/src/main/java/org/flyfishalex/controller/CategoryController.java" afterPath="$PROJECT_DIR$/web/src/main/java/org/flyfishalex/controller/CategoryController.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/domain/src/main/java/org/flyfishalex/dao/CategoryDao.java" afterPath="$PROJECT_DIR$/domain/src/main/java/org/flyfishalex/dao/CategoryDao.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/bl/src/main/java/org/flyfishalex/bl/CategoryService.java" afterPath="$PROJECT_DIR$/bl/src/main/java/org/flyfishalex/bl/CategoryService.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/converter/src/main/java/org/flyfishalex/convert/converter/ChangePriceFF.java" afterPath="$PROJECT_DIR$/converter/src/main/java/org/flyfishalex/convert/converter/ChangePriceFF.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/converter/src/main/java/org/flyfishalex/convert/converter/ChangePriceVision.java" afterPath="$PROJECT_DIR$/converter/src/main/java/org/flyfishalex/convert/converter/ChangePriceVision.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/web/src/main/java/org/flyfishalex/controller/ControllerAdvisor.java" afterPath="$PROJECT_DIR$/web/src/main/java/org/flyfishalex/controller/ControllerAdvisor.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/domain/src/main/java/org/flyfishalex/model/dto/Demo.java" afterPath="$PROJECT_DIR$/domain/src/main/java/org/flyfishalex/model/dto/Demo.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/web/src/main/java/org/flyfishalex/controller/IndexController.java" afterPath="$PROJECT_DIR$/web/src/main/java/org/flyfishalex/controller/IndexController.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/domain/src/main/java/org/flyfishalex/enums/Lang.java" afterPath="$PROJECT_DIR$/domain/src/main/java/org/flyfishalex/enums/Lang.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/web/src/main/java/org/flyfishalex/controller/admin/OrderAdminController.java" afterPath="$PROJECT_DIR$/web/src/main/java/org/flyfishalex/controller/admin/OrderAdminController.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/domain/src/main/java/org/flyfishalex/model/dto/OrderDTO.java" afterPath="$PROJECT_DIR$/domain/src/main/java/org/flyfishalex/model/dto/OrderDTO.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/domain/src/main/java/org/flyfishalex/dao/OrderDao.java" afterPath="$PROJECT_DIR$/domain/src/main/java/org/flyfishalex/dao/OrderDao.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/domain/src/main/java/org/flyfishalex/model/OrderPoint.java" afterPath="$PROJECT_DIR$/domain/src/main/java/org/flyfishalex/model/OrderPoint.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/bl/src/main/java/org/flyfishalex/bl/OrderService.java" afterPath="$PROJECT_DIR$/bl/src/main/java/org/flyfishalex/bl/OrderService.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/domain/src/main/java/org/flyfishalex/enums/OrderStatus.java" afterPath="$PROJECT_DIR$/domain/src/main/java/org/flyfishalex/enums/OrderStatus.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/web/src/main/java/org/flyfishalex/controller/PaymentController.java" afterPath="$PROJECT_DIR$/web/src/main/java/org/flyfishalex/controller/PaymentController.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/domain/src/main/java/org/flyfishalex/model/Product.java" afterPath="$PROJECT_DIR$/domain/src/main/java/org/flyfishalex/model/Product.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/web/src/main/java/org/flyfishalex/controller/admin/ProductAdminController.java" afterPath="$PROJECT_DIR$/web/src/main/java/org/flyfishalex/controller/admin/ProductAdminController.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/web/src/main/java/org/flyfishalex/controller/ProductController.java" afterPath="$PROJECT_DIR$/web/src/main/java/org/flyfishalex/controller/ProductController.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/domain/src/main/java/org/flyfishalex/dao/ProductDao.java" afterPath="$PROJECT_DIR$/domain/src/main/java/org/flyfishalex/dao/ProductDao.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/bl/src/main/java/org/flyfishalex/bl/ProductService.java" afterPath="$PROJECT_DIR$/bl/src/main/java/org/flyfishalex/bl/ProductService.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/converter/src/main/java/org/flyfishalex/convert/parser/rybolovorg/RybolovModel.java" afterPath="$PROJECT_DIR$/converter/src/main/java/org/flyfishalex/convert/parser/rybolovorg/RybolovModel.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/converter/src/main/java/org/flyfishalex/convert/parser/rybolovorg/RybolovParser.java" afterPath="$PROJECT_DIR$/converter/src/main/java/org/flyfishalex/convert/parser/rybolovorg/RybolovParser.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/domain/src/main/java/org/flyfishalex/model/User.java" afterPath="$PROJECT_DIR$/domain/src/main/java/org/flyfishalex/model/User.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/web/src/main/java/org/flyfishalex/controller/UserController.java" afterPath="$PROJECT_DIR$/web/src/main/java/org/flyfishalex/controller/UserController.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/domain/src/main/java/org/flyfishalex/dao/UserDao.java" afterPath="$PROJECT_DIR$/domain/src/main/java/org/flyfishalex/dao/UserDao.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/bl/src/main/java/org/flyfishalex/exception/UserException.java" afterPath="$PROJECT_DIR$/bl/src/main/java/org/flyfishalex/exception/UserException.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/bl/src/main/java/org/flyfishalex/bl/UserService.java" afterPath="$PROJECT_DIR$/bl/src/main/java/org/flyfishalex/bl/UserService.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/domain/src/main/java/org/flyfishalex/model/Variant.java" afterPath="$PROJECT_DIR$/domain/src/main/java/org/flyfishalex/model/Variant.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/web/src/main/webapp/web-resources/css/admin.css" afterPath="$PROJECT_DIR$/web/src/main/webapp/web-resources/css/admin.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/web/src/main/webapp/web-resources/js/admin.js" afterPath="$PROJECT_DIR$/web/src/main/webapp/web-resources/js/admin.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/web/src/main/webapp/WEB-INF/applicationContext.xml" afterPath="$PROJECT_DIR$/web/src/main/webapp/WEB-INF/applicationContext.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/bl/bl.iml" afterPath="$PROJECT_DIR$/bl/bl.iml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/web/src/main/webapp/WEB-INF/view/cart.jsp" afterPath="$PROJECT_DIR$/web/src/main/webapp/WEB-INF/view/cart.jsp" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/web/src/main/webapp/web-resources/css/category.css" afterPath="$PROJECT_DIR$/web/src/main/webapp/web-resources/css/category.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/web/src/main/webapp/WEB-INF/view/category.jsp" afterPath="$PROJECT_DIR$/web/src/main/webapp/WEB-INF/view/category.jsp" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/compiler.xml" afterPath="$PROJECT_DIR$/.idea/compiler.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/converter/converter.iml" afterPath="$PROJECT_DIR$/converter/converter.iml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/domain/domain.iml" afterPath="$PROJECT_DIR$/domain/domain.iml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/encodings.xml" afterPath="$PROJECT_DIR$/.idea/encodings.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/web/src/main/webapp/web-resources/css/footer.css" afterPath="$PROJECT_DIR$/web/src/main/webapp/web-resources/css/footer.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/web/src/main/webapp/web-resources/css/global.css" afterPath="$PROJECT_DIR$/web/src/main/webapp/web-resources/css/global.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/web/src/main/webapp/web-resources/css/header.css" afterPath="$PROJECT_DIR$/web/src/main/webapp/web-resources/css/header.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/web/src/main/webapp/WEB-INF/view/northbay/header.jsp" afterPath="$PROJECT_DIR$/web/src/main/webapp/WEB-INF/view/northbay/header.jsp" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/web/src/main/webapp/web-resources/css/index.css" afterPath="$PROJECT_DIR$/web/src/main/webapp/web-resources/css/index.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/web/src/main/webapp/WEB-INF/view/index.jsp" afterPath="$PROJECT_DIR$/web/src/main/webapp/WEB-INF/view/index.jsp" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/web/src/main/webapp/WEB-INF/view/login.jsp" afterPath="$PROJECT_DIR$/web/src/main/webapp/WEB-INF/view/login.jsp" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/web/src/main/webapp/web-resources/css/menu.css" afterPath="$PROJECT_DIR$/web/src/main/webapp/web-resources/css/menu.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/web/src/main/webapp/WEB-INF/view/menu.jsp" afterPath="$PROJECT_DIR$/web/src/main/webapp/WEB-INF/view/menu.jsp" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/misc.xml" afterPath="$PROJECT_DIR$/.idea/misc.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/web/src/main/webapp/WEB-INF/view/orderSuccess.jsp" afterPath="$PROJECT_DIR$/web/src/main/webapp/WEB-INF/view/orderSuccess.jsp" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/web/src/main/webapp/WEB-INF/view/orders.jsp" afterPath="$PROJECT_DIR$/web/src/main/webapp/WEB-INF/view/orders.jsp" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/web/src/main/webapp/WEB-INF/view/admin/orders.jsp" afterPath="$PROJECT_DIR$/web/src/main/webapp/WEB-INF/view/admin/orders.jsp" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/pom.xml" afterPath="$PROJECT_DIR$/pom.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/bl/pom.xml" afterPath="$PROJECT_DIR$/bl/pom.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/converter/pom.xml" afterPath="$PROJECT_DIR$/converter/pom.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/domain/pom.xml" afterPath="$PROJECT_DIR$/domain/pom.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/web/pom.xml" afterPath="$PROJECT_DIR$/web/pom.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/converter/output/priceFF.csv" afterPath="$PROJECT_DIR$/converter/output/priceFF.csv" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/converter/output/priceVision.csv" afterPath="$PROJECT_DIR$/converter/output/priceVision.csv" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/web/src/main/webapp/web-resources/css/product.css" afterPath="$PROJECT_DIR$/web/src/main/webapp/web-resources/css/product.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/web/src/main/webapp/WEB-INF/view/product.jsp" afterPath="$PROJECT_DIR$/web/src/main/webapp/WEB-INF/view/product.jsp" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/web/src/main/webapp/WEB-INF/view/registration.jsp" afterPath="$PROJECT_DIR$/web/src/main/webapp/WEB-INF/view/registration.jsp" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/web/src/main/webapp/WEB-INF/view/registrationSuccess.jsp" afterPath="$PROJECT_DIR$/web/src/main/webapp/WEB-INF/view/registrationSuccess.jsp" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/web/web.iml" afterPath="$PROJECT_DIR$/web/web.iml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/web/src/main/webapp/WEB-INF/web.xml" afterPath="$PROJECT_DIR$/web/src/main/webapp/WEB-INF/web.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/artifacts/web_war_exploded.xml" afterPath="$PROJECT_DIR$/.idea/artifacts/web_war_exploded.xml" />
+    <list default="true" id="594e0c7e-40c7-49a1-b133-5f356ff6271c" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="flyfishalex.iws" />
@@ -218,8 +66,8 @@
       <file leaf-file-name="PaymentController.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/web/src/main/java/org/flyfishalex/controller/PaymentController.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.36756757" vertical-offset="952" max-vertical-offset="2108">
-              <caret line="83" column="77" selection-start-line="83" selection-start-column="77" selection-end-line="83" selection-end-column="77" />
+            <state vertical-scroll-proportion="0.32162163" vertical-offset="952" max-vertical-offset="2108">
+              <caret line="82" column="112" selection-start-line="82" selection-start-column="98" selection-end-line="82" selection-end-column="112" />
               <folding />
             </state>
           </provider>
@@ -2329,7 +2177,7 @@
       <workItem from="1437570307374" duration="8359000" />
       <workItem from="1438166156261" duration="84708000" />
       <workItem from="1439994465576" duration="32367000" />
-      <workItem from="1441270532999" duration="16077000" />
+      <workItem from="1441270532999" duration="16436000" />
     </task>
     <task id="LOCAL-00001" summary="variants + login">
       <created>1432500243113</created>
@@ -2355,11 +2203,17 @@
       <option name="project" value="LOCAL" />
       <updated>1438361080286</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="web">
+      <created>1442143412787</created>
+      <option name="number" value="00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1442143412787</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="512015000" />
+    <option name="totallyTimeSpent" value="512374000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1382" height="754" extended-state="6" />
@@ -2379,7 +2233,7 @@
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Mongo Explorer" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.2730711" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32942238" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.18381241" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.18381241" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.34028894" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
@@ -2525,6 +2379,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="110" max-vertical-offset="578">
           <caret line="23" column="25" selection-start-line="0" selection-start-column="0" selection-end-line="28" selection-end-column="0" />
+          <folding />
         </state>
       </provider>
     </entry>
@@ -2532,6 +2387,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="127" max-vertical-offset="578">
           <caret line="28" column="0" selection-start-line="28" selection-start-column="0" selection-end-line="28" selection-end-column="0" />
+          <folding />
         </state>
       </provider>
     </entry>
@@ -2882,8 +2738,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/web/src/main/java/org/flyfishalex/controller/PaymentController.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.36756757" vertical-offset="952" max-vertical-offset="2108">
-          <caret line="83" column="77" selection-start-line="83" selection-start-column="77" selection-end-line="83" selection-end-column="77" />
+        <state vertical-scroll-proportion="0.32162163" vertical-offset="952" max-vertical-offset="2108">
+          <caret line="82" column="112" selection-start-line="82" selection-start-column="98" selection-end-line="82" selection-end-column="112" />
           <folding />
         </state>
       </provider>
