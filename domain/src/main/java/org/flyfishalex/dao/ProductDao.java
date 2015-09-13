@@ -67,6 +67,12 @@ public class ProductDao {
 
     }
 
+    public List<Product> getProducts( Lang lang) {
+        Query query = query(where("stores").is(lang.getId()));
+        return operations.find(query, Product.class);
+
+    }
+
     public List<Product> getProducts() {
         return operations.findAll(Product.class);
     }
@@ -91,5 +97,10 @@ public class ProductDao {
         query.limit(count);
         query.with(new Sort(Sort.Direction.DESC,"id"));
         return operations.find(query, Product.class);
+    }
+
+    public Variant getVariantByVendor(String article) {
+        Query query = query(where("article").is(article));
+        return operations.findOne(query, Variant.class);
     }
 }

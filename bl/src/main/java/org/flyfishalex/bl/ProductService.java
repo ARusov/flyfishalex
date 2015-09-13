@@ -31,6 +31,10 @@ public class ProductService {
         return productDao.getProducts();
     }
 
+    public List<Product> getProducts(Lang lang) {
+        return productDao.getProducts(lang);
+    }
+
     public void saveProduct(Product product) {
         productDao.saveProduct(product);
     }
@@ -54,5 +58,9 @@ public class ProductService {
 
     public List<Product> getLastProducts(int count, Lang lang) {
         return productDao.getLastProducts(count, lang);
+    }
+
+    public Variant getVariantByVendor(String article) {
+        return productDao.getVariantByVendor(article);
     }
 }

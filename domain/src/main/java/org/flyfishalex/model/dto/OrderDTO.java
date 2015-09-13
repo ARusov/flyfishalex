@@ -2,6 +2,7 @@ package org.flyfishalex.model.dto;
 
 import org.flyfishalex.model.OrderPoint;
 
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -9,11 +10,10 @@ import java.util.List;
  */
 public class OrderDTO {
 
-    private long id;
+    private List<OrderPoint> orderPoints= new ArrayList<OrderPoint>();
 
-    private String status;
-
-    private List<OrderPoint> orderPoints;
+    public OrderDTO() {
+    }
 
     public List<OrderPoint> getOrderPoints() {
         return orderPoints;

@@ -3,6 +3,7 @@ package org.flyfishalex.dao;
 import org.flyfishalex.enums.Lang;
 import org.flyfishalex.model.Category;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Sort;
 import org.springframework.data.mongodb.core.MongoOperations;
 import org.springframework.data.mongodb.core.query.Query;
 import org.springframework.stereotype.Repository;
@@ -33,7 +34,9 @@ public class CategoryDao {
 
     public void createCategory(Category category) {
         if (category != null) {
-            category.setId(sequenceDAO.getNextSequenceId(SEQ_KEY));
+            if (category.getId() <= 0) {
+                category.setId(sequenceDAO.getNextSequenceId(SEQ_KEY));
+            }
             operations.save(category);
         }
     }
@@ -73,8 +76,9 @@ public class CategoryDao {
 
     }
 
-    public List<Category> getCategories(String lang) {
-        Query query = query(where(lang).is(true));
+    public List<Category> getCategories(Lang lang) {
+        Query query = query(where("stores").is(lang.getId()));
+        query.with(new Sort(Sort.Direction.ASC,"name"));
         return operations.find(query, Category.class);
     }
 
@@ -109,5 +113,17 @@ public class CategoryDao {
     public Category getByVendorParentId(String vendorParentId) {
         Query query = query(where("vendorId").is(vendorParentId));
         return operations.findOne(query, Category.class);
+    }
+
+    public List<Category> get2ndCategories(Lang lang) {
+        List<Category> categories = new ArrayList<Category>();
+        List<Category> parents = getCategories(0,lang);
+        for(Category parent:parents){
+            Query query = query(where("parentId").is(parent.getId()).and("stores").is(lang.getId()));
+            categories.addAll((List<Category>) operations.find(query, Category.class));
+        }
+
+
+        return categories;
     }
 }

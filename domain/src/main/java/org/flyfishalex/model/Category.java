@@ -1,6 +1,5 @@
 package org.flyfishalex.model;
 
-import com.fasterxml.jackson.annotation.JsonProperty;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 
@@ -20,16 +19,11 @@ public class Category {
 
     private String nameEn;
 
-    private boolean ru;
-
-    private boolean en;
-
     private List<Integer>stores= new ArrayList<Integer>();
 
     private long parentId;
 
     private String vendorId;
-
 
     public Category() {
     }
@@ -40,22 +34,6 @@ public class Category {
 
     public void setStores(List<Integer> stores) {
         this.stores = stores;
-    }
-
-    public boolean isRu() {
-        return ru;
-    }
-
-    public void setRu(boolean ru) {
-        this.ru = ru;
-    }
-
-    public boolean isEn() {
-        return en;
-    }
-
-    public void setEn(boolean en) {
-        this.en = en;
     }
 
     public String getNameEn() {

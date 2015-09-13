@@ -12,6 +12,10 @@ public class RybolovModel {
     @XmlAttribute(name = "id")
     private int id;
 
+    @XmlAttribute(name = "type")
+    private String type;
+
+
     @XmlElement(name = "categoryId")
     private int categoryId;
 
@@ -30,6 +34,14 @@ public class RybolovModel {
     public RybolovModel() {
     }
 
+
+    public String getType() {
+        return type;
+    }
+
+    public void setType(String type) {
+        this.type = type;
+    }
 
     public String getModel() {
         return model;

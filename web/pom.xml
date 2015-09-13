@@ -18,11 +18,6 @@
             <version>${project.version}</version>
         </dependency>
         <dependency>
-            <groupId>org.flyfishalex</groupId>
-            <artifactId>converter</artifactId>
-            <version>${project.version}</version>
-        </dependency>
-        <dependency>
             <groupId>org.springframework</groupId>
             <artifactId>spring-webmvc</artifactId>
         </dependency>
@@ -49,13 +44,14 @@
 
 
         <dependency>
-            <groupId>org.springframework.security</groupId>
-            <artifactId>spring-security-web</artifactId>
+            <groupId>org.slf4j</groupId>
+            <artifactId>slf4j-log4j12</artifactId>
         </dependency>
         <dependency>
-            <groupId>org.springframework.security</groupId>
-            <artifactId>spring-security-config</artifactId>
+            <groupId>org.springframework.ws</groupId>
+            <artifactId>spring-oxm</artifactId>
         </dependency>
+
     </dependencies>
     <build>
         <finalName>flyfishalex</finalName>

@@ -71,7 +71,7 @@ public class ChangePriceVision {
                     Price price = getPrice(allProducts, articul);
                     if (price != null) {
                         Double cost = Double.parseDouble(getCellValue(row.getCell(4)).trim());
-                        cost = cost * 1.425;;
+                        cost = cost * 1.525;;
                         price.setPrice(cost.intValue());
                         String countString = getCellValue(row.getCell(5));
                         int count = 0;

@@ -8,6 +8,7 @@
     <link rel="stylesheet" href="<c:url value="${lang.resources}/resources/css/global.css"/> ">
     <link rel="stylesheet" href="<c:url value="${lang.resources}/resources/css/header.css"/> ">
     <link rel="stylesheet" href="<c:url value="${lang.resources}/resources/css/footer.css"/> ">
+    <link rel="stylesheet" href="<c:url value="${lang.resources}/resources/css/registration.css"/> ">
     <title>Магазин</title>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
 </head>
@@ -15,9 +16,8 @@
 <jsp:include page="${lang.lang}/header.jsp"/>
 <div id="container">
    <h2>Спасибо за заказ</h2>
-    <p>Номер Вашего заказа ${orderId}</p>
-    <p>Перейти в личный кабинет</p>
-    <p>Перейти на главную</p>
+    <p>Перейти в <a href="${lang.context}/user/cabinet/orders">мои заказы</a></p>
+    <p>Перейти на <a href="${lang.context}">главную</a></p>
 </div>
 </body>
 </html>

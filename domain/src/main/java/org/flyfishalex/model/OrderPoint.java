@@ -25,6 +25,9 @@ public class OrderPoint {
         this.price = price;
     }
 
+    public OrderPoint() {
+    }
+
     public long getOrderId() {
         return orderId;
     }

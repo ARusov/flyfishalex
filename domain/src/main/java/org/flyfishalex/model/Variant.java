@@ -18,6 +18,8 @@ public class Variant {
 
     private String description;
 
+    private String fullDescription;
+
     private String descriptionEn;
 
     private int price;
@@ -88,5 +90,13 @@ public class Variant {
 
     public void setPrice(int price) {
         this.price = price;
+    }
+
+    public String getFullDescription() {
+        return fullDescription;
+    }
+
+    public void setFullDescription(String fullDescription) {
+        this.fullDescription = fullDescription;
     }
 }

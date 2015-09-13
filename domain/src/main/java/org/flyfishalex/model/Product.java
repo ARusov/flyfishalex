@@ -33,6 +33,7 @@ public class Product {
 
     private List<Integer> stores = new ArrayList<Integer>();
 
+    private List<String>  images= new ArrayList<String>();
 
     public List<Integer> getStores() {
         return stores;
@@ -114,6 +115,13 @@ public class Product {
         this.name = name;
     }
 
+    public List<String> getImages() {
+        return images;
+    }
+
+    public void setImages(List<String> images) {
+        this.images = images;
+    }
 }
 
 

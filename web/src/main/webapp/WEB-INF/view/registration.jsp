@@ -7,9 +7,10 @@
     <link rel="stylesheet" href="<c:url value="${lang.resources}/resources/css/global.css"/> ">
     <link rel="stylesheet" href="<c:url value="${lang.resources}/resources/css/header.css"/> ">
     <link rel="stylesheet" href="<c:url value="${lang.resources}/resources/css/footer.css"/> ">
-    <link rel="stylesheet" href="<c:url value="${lang.resources}/resources/css/path.css"/> ">
-    <link rel="stylesheet" href="<c:url value="${lang.resources}/resources/css/menu.css"/> ">
-    <title>Магазин</title>
+    <link rel="stylesheet" href="<c:url value="${lang.resources}/resources/css/registration.css"/> ">
+    <script type="text/javascript" src="<c:url value="${lang.resources}/resources/js/jquery-2.1.4.min.js"/>"></script>
+    <script type="text/javascript" src="<c:url value="${lang.resources}/resources/js/registration.js"/>"></script>
+    <title>Регистрация</title>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
 </head>
 <body>
@@ -17,16 +18,32 @@
 
 <div id="container">
 
-    <form:form commandName="user" method="post">
+    <form:form commandName="user" method="post" action="${lang.context}/user/registration">
         <div class="row">
+            <div>Ваше имя:</div>
+            <form:input path="name"/>
+        </div>
+        <div class="row">
+            <div>Email:</div>
             <form:input path="email"/>
         </div>
         <div class="row">
+            <div>Пароль:</div>
             <form:password path="pwd"/>
         </div>
         <div class="row">
-            <input type="submit" value="Registration"/>
+            <div>Повторите пароль:</div>
+            <input type="password" id="repeatPwd"/>
         </div>
+        <div class="row">
+            <input id="button" type="submit" value="Регистрация"/>
+        </div>
+        <c:if test="${not empty error}">
+            <div class="row">
+                <div class="error"><span>Вы уже зарегистрированы на на нашем сайте. Вы можете <a
+                        href="${lang.context}/user/login">войти</a> на сайт или <a>восстановить пароль</a></span></div>
+            </div>
+        </c:if>
     </form:form>
 </div>
 </body>

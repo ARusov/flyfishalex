@@ -2,8 +2,8 @@ package org.flyfishalex.bl;
 
 import org.flyfishalex.dao.OrderDao;
 import org.flyfishalex.enums.Lang;
-import org.flyfishalex.model.dto.OrderDTO;
 import org.flyfishalex.model.*;
+import org.flyfishalex.model.dto.OrderDTO;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -48,11 +48,7 @@ public class OrderService {
 
     }
 
-    public Order getBasket() {
-        User user = userService.getCurrentUser();
-        if (user == null) {
-            //TODO:exception
-        }
+    public Order getBasket(User user) {
         return orderDao.getBasketOrder(user.getId(), 0);
     }
 
@@ -68,6 +64,10 @@ public class OrderService {
 
     public OrderPoint getOrderPoint(long variantId, long orderId) {
         return orderDao.getOrderPoint(variantId, orderId);
+    }
+
+    public OrderPoint getOrderPoint(long orderPointId) {
+        return orderDao.getOrderPoint(orderPointId);
     }
 
     public List<Delivery> getDeliveries() {
@@ -92,5 +92,24 @@ public class OrderService {
 
     public List<Order> getOrders(long userId) {
         return orderDao.getOrders(userId);
+    }
+    public List<Order> getOrders() {
+        return orderDao.getOrders();
+    }
+
+    public void saveOrderPoint(OrderPoint orderPoint) {
+        orderDao.saveOrderPoint(orderPoint);
+    }
+
+    public Order getOrder(long orderId) {
+        return orderDao.getOrder(orderId);
+    }
+
+    public Order getOrderById(long orderID) {
+        return orderDao.getOrderById(orderID);
+    }
+
+    public void removeOrderPoint(OrderPoint currentPoint) {
+        orderDao.removeOrderPoint(currentPoint);
     }
 }

@@ -39,8 +39,6 @@ public class Demo {
         Marshaller marshaller=jc.createMarshaller();
         marshaller.marshal(c,writer);
         postMethod.setRequestEntity(new StringRequestEntity(writer.toString(),"application/xml","UTF-8"));
-        System.out.println(writer.toString());
-        System.out.println(httpClient.executeMethod(postMethod));
 
     }
 
@@ -59,7 +57,6 @@ public class Demo {
                 category.setName(item.getName());
                 category.setParentId(root);
 //                categoryDao.createCategory(category);
-                System.out.println(item.getName() + "---" + root);
                 transform1c(item.getCategories(), category.getId());
 
             }
@@ -78,7 +75,6 @@ public class Demo {
             }
             xsr.next();
         }
-        System.out.println(xsr.getLocalName());
 
 
         JAXBContext jc = JAXBContext.newInstance(Categories1c.class);

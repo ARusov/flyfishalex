@@ -2,7 +2,9 @@ package org.flyfishalex.enums;
 
 public enum  OrderStatus {
     BASKET(0, "в корзине"),
-    CHECKING(1, "В обработке");
+    CHECKING(1, "В обработке"),
+    PAY(2, "Готов к оплате"),
+    PAYED(3, "Оплачен");
 
     private final int code;
 
@@ -15,6 +17,10 @@ public enum  OrderStatus {
 
     public int getCode() {
         return code;
+    }
+
+    public String getMessage() {
+        return message;
     }
 
     public static OrderStatus getOrderStatus(int code) {

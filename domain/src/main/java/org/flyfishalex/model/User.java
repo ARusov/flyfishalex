@@ -24,6 +24,19 @@ public class User {
 
     private boolean active;
 
+    private String uuid;
+
+    public User() {
+    }
+
+    public String getUuid() {
+        return uuid;
+    }
+
+    public void setUuid(String uuid) {
+        this.uuid = uuid;
+    }
+
     public boolean getActive() {
         return active;
     }
@@ -38,9 +51,6 @@ public class User {
 
     public void setLang(String lang) {
         this.lang = lang;
-    }
-
-    public User() {
     }
 
     public String getRole() {

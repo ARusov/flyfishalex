@@ -1,69 +1,71 @@
-h1{
-    text-align: left;
-}
-#container {
-    /*border: black thin solid;*/
-    width: 100%;
-    display: table;
-    margin-top: 20px;
-}
-#product {
-    /*border: gainsboro thin solid;*/
-    height: auto;
-    min-height: 50px;
-    width: 78%;
-    float: left;
-    margin-left: 10px;
+h1 {
+    font-size: 16px;
+    font-family: Arial;
     text-align: center;
 }
-#product-info{
-    /*border: gainsboro thin solid;*/
-    height: auto;
-    width: 100%;
-    display: inline-block;
+
+#container {
+    /*border: black thin solid;*/
+    width: 1000px;
+    margin-top: 20px;
 }
-#product-images{
+
+#product {
     /*border: gainsboro thin solid;*/
-    height: auto;
-    width: 30%;
-    float: left;
+    width: 1000px;
 }
-.product-image{
+
+#product-info {
+    /*border: gainsboro thin solid;*/
+}
+
+#product-images {
+    /*border: gainsboro thin solid;*/
+}
+
+.product-image {
     border: gainsboro thin solid;
     float: left;
     margin: 2px;
+    width: 300px;
 }
-#product-price-variant{
+
+.product-image img {
+    width: inherit;
+}
+
+#product-price-variant {
     /*border: gainsboro thin solid;*/
     height: auto;
-    width: 68%;
     height: auto;
     float: right;
 }
-#product-variant{
+
+#product-variant {
     /*border: gainsboro thin solid;*/
-    height: auto;
-    width: 100%;
+    margin-top: 10px;
+    border-top: gainsboro thin solid;
+    width: 1000px;
+    text-align: center;
 }
-.product-variant{
-text-align: left;
+
+.product-variant {
 }
-.product-variant h2{
-font-weight: normal;
+
+.product-variant h2 {
+    font-weight: normal;
     font-size: 12pt;
     margin: 0;
     padding: 0;
 }
-h2 span{
+
+h2 span {
     margin-left: 10px;
     font-size: 120%;
 }
 
-#product-description{
-    border-top: gainsboro thin solid;
-    margin-top: 20px;
-    height: auto;
-    width: 100%;
-    display: inline-block;
+#product-description {
+    /*border-top: gainsboro thin solid;*/
+    text-align: justify;
 }
 

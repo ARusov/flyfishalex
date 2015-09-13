@@ -3,7 +3,7 @@
     /*border: black thin solid;*/
     width: 100%;
     display: table;
-    margin-top: 20px;
+    margin-top: 50px;
 }
 
 #news {
@@ -46,18 +46,22 @@
     /*border: black thin solid;*/
     height: auto;
     min-height: 50px;
-    width: 78%;
-    float: left;
-    margin-left: 10px;
+    width: 1000px;
     text-align: center;
 }
 
 .item{
     border: gainsboro thin solid;
-    width: 150px;
+    width: 180px;
     height: 200px;
     border-radius: 5px;
-    display: inline-table;
+    display: block;
     margin-bottom: 5px;
+    float: left;
+    margin-left: 9px;
+    margin-right: 9px;
 }
-
+#myCarousel{
+    width: 1000px;
+    height: 200px;
+}

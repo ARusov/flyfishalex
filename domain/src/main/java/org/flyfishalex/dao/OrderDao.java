@@ -61,6 +61,11 @@ public class OrderDao {
         return operations.findOne(query, OrderPoint.class);
     }
 
+    public OrderPoint getOrderPoint(long orderPointId) {
+        Query query = query(where("id").is(orderPointId));
+        return operations.findOne(query, OrderPoint.class);
+    }
+
 
     public void savePayment(Payment payment) {
         if (payment != null) {
@@ -91,5 +96,25 @@ public class OrderDao {
     public List<Order> getOrders(long userId) {
         Query query = query(where("userId").is(userId).and("status").ne(0));
         return operations.find(query, Order.class);
+    }
+
+    public List<Order> getOrders() {
+        Query query = query(where("status").ne(0));
+        return operations.find(query, Order.class);
+    }
+
+    public Order getOrder(long orderId) {
+        Query query = query(where("id").is(orderId).and("status").is(2));
+        return operations.findOne(query, Order.class);
+    }
+    public Order getOrderById(long orderId) {
+        Query query = query(where("id").is(orderId));
+        return operations.findOne(query, Order.class);
+    }
+
+    public void removeOrderPoint(OrderPoint currentPoint) {
+        if(currentPoint!=null){
+            operations.remove(currentPoint);
+        }
     }
 }

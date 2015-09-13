@@ -1,16 +1,9 @@
 package org.flyfishalex.controller.admin;
 
-import com.fasterxml.jackson.core.JsonProcessingException;
-import com.fasterxml.jackson.databind.ObjectMapper;
 import org.flyfishalex.bl.CategoryService;
-import org.flyfishalex.bl.ProductService;
 import org.flyfishalex.controller.AbstractController;
-import org.flyfishalex.convert.parser.rybolovorg.RybolovCategory;
-import org.flyfishalex.convert.parser.rybolovorg.RybolovParser;
 import org.flyfishalex.enums.Lang;
-import org.flyfishalex.enums.Provider;
 import org.flyfishalex.model.Category;
-import org.flyfishalex.model.Product;
 import org.flyfishalex.model.dto.CategoryDTO;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -30,13 +23,11 @@ public class CategoriesAdminController extends AbstractController {
     private CategoryService categoryService;
 
     @RequestMapping(value = "/categories", method = RequestMethod.GET)
-    public ModelAndView getCategories(@RequestParam(value = "categoryId", required = false) Long categoryId) {
-        ModelAndView mav = new ModelAndView("admin");
-        if (!checkRole("ROLE_USER")) {
-//            return new ModelAndView("redirect:"+ Lang.getLang("ru").getContext()+"/user/login");
-        }
+    public ModelAndView getCategories(@PathVariable("lang") String lang,
+                                      @RequestParam(value = "categoryId", required = false, defaultValue = "0") long categoryId) {
+        ModelAndView mav = new ModelAndView("admin/categories");
         Category category = null;
-        if (categoryId == null) {
+        if (categoryId == 0) {
             category = new Category();
         } else {
             category = categoryService.getCategory(categoryId);
@@ -46,49 +37,26 @@ public class CategoriesAdminController extends AbstractController {
         }
 
         mav.addObject("category", category);
-        List<Category> categories = categoryService.getCategories();
-        categories.add(new Category());
+        mav.addObject("parentCategory", categoryService.getCategory(category.getParentId()));
+        mav.addObject("allCategories", categoryService.getCategories(Lang.getLang(lang)));
+        List<Category> categories = categoryService.getCategories(categoryId, Lang.getLang(lang));
         mav.addObject("categories", categories);
         mav.addObject("stores", Lang.values());
+        mav.addObject("lang", Lang.getLang(lang));
         return mav;
     }
 
 
-    @RequestMapping(value = "/categories.json", method = RequestMethod.GET, headers = "Accept=*/*")
-    public
-    @ResponseBody
-    List<CategoryDTO> getCategoriesJson() {
-        List<CategoryDTO> categories = categoryService.getCategoriesDTO();
-        CategoryDTO categoryDTO = new CategoryDTO();
-        categoryDTO.setId("0");
-        categoryDTO.setText("Каталог");
-        categories.add(0, categoryDTO);
-        return categories;
-    }
-
-    @RequestMapping(value = "/category.json", method = RequestMethod.GET, headers = "Accept=*/*")
-    public
-    @ResponseBody
-    Category getCategoriesJson(@RequestParam("categoryId") long id) {
-        return categoryService.getCategory(id);
-
-    }
-
     @RequestMapping(value = "/category", method = RequestMethod.POST)
-    public String saveCategory(@ModelAttribute Category category) {
+    public String saveCategory(@PathVariable("lang") String lang,
+                               @ModelAttribute Category category) {
         if (category.getId() > 0) {
             categoryService.save(category);
         } else {
             categoryService.createCategory(category);
         }
 
-        ObjectMapper mapper = new ObjectMapper();
-        try {
-            System.out.println(mapper.writeValueAsString(category));
-        } catch (JsonProcessingException e) {
-            e.printStackTrace();
-        }
-        return "redirect:http://localhost:8080/flyfishalex/ru/admin/categories?categoryId=" + category.getId();
+        return "redirect:" + Lang.getLang(lang).getContext() + "/admin/categories?categoryId=" + category.getId();
     }
 
     @RequestMapping(value = "/categories", method = RequestMethod.DELETE)
@@ -96,7 +64,7 @@ public class CategoriesAdminController extends AbstractController {
     @ResponseBody
     String deleteCategory(@RequestParam(value = "categoryId", required = false) Long categoryId) {
         if (categoryId != null) {
-            List<CategoryDTO> childs = categoryService.getCategories(categoryId, Lang.getLang("ru"));
+            List<CategoryDTO> childs = categoryService.getCategoriesDTO(categoryId, Lang.getLang("ru"));
             if (childs == null || childs.size() > 0) {
                 return "Please remove child before";
 

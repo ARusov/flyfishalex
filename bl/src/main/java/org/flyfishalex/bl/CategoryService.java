@@ -19,10 +19,14 @@ public class CategoryService {
     @Autowired
     private CategoryDao categoryDao;
 
-    public List<CategoryDTO> getCategories(long parentId, Lang lang) {
+    public List<CategoryDTO> getCategoriesDTO(long parentId, Lang lang) {
         List<Category> categories = categoryDao.getCategories(parentId, lang);
 
         return convertCategories(categories,lang);
+    }
+
+    public List<Category> getCategories(long parentId, Lang lang) {
+        return categoryDao.getCategories(parentId, lang);
     }
 
     private CategoryDTO convertCategory(Category category, Lang lang) {
@@ -96,9 +100,8 @@ public class CategoryService {
         categoryDao.delete(category);
     }
 
-    public List<CategoryDTO> getCategories(String lang) {
-
-        return convertCategories(categoryDao.getCategories(lang), Lang.getLang(lang));
+    public List<Category> getCategories(Lang lang) {
+        return categoryDao.getCategories(lang);
     }
 
     public List<CategoryDTO> getParentCategories(long categoryId, Lang lang) {
@@ -113,5 +116,10 @@ public class CategoryService {
 
     public Category getByVendorParentId(String vendorParentId) {
       return   categoryDao.getByVendorParentId(vendorParentId);
+    }
+
+    public  List<CategoryDTO> get2ndCategories(Lang lang) {
+        List<Category> categories = categoryDao.get2ndCategories(lang);
+        return convertCategories(categories,lang);
     }
 }

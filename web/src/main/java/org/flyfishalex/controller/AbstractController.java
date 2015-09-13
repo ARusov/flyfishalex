@@ -2,43 +2,44 @@ package org.flyfishalex.controller;
 
 
 import org.flyfishalex.bl.UserService;
+import org.flyfishalex.model.User;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.security.core.GrantedAuthority;
-import org.springframework.security.core.context.SecurityContextHolder;
-import org.springframework.security.core.userdetails.User;
-import org.springframework.security.core.userdetails.UserDetails;
+
+import javax.servlet.http.HttpSession;
+import java.security.MessageDigest;
+import java.security.NoSuchAlgorithmException;
+
 
 public class AbstractController {
+
+    protected static final String SESSION_USER = "sessionProfile";
 
     @Autowired
     private UserService userService;
 
-    protected User getUserDetails() {
-        User userDetails = null;
-        Object _user = SecurityContextHolder.getContext()
-                .getAuthentication().getPrincipal();
-        if (_user != null && _user instanceof User) {
-            userDetails = (User) _user;
+    @Autowired
+    protected HttpSession session;
 
-        }
-        return userDetails;
-    }
-
-    protected boolean checkRole(String role) {
-        UserDetails userDetails = getUserDetails();
-        if (userDetails == null) {
-            return false;
-        }
-
-        for (GrantedAuthority authority : userDetails.getAuthorities()) {
-            if (authority.getAuthority().equals(role)) {
-                return true;
+    protected static String cryptWithMD5(String pass) {
+        try {
+            MessageDigest md = MessageDigest.getInstance("MD5");
+            byte[] passBytes = pass.getBytes();
+            md.reset();
+            byte[] digested = md.digest(passBytes);
+            StringBuffer sb = new StringBuffer();
+            for (int i = 0; i < digested.length; i++) {
+                sb.append(Integer.toHexString(0xff & digested[i]));
             }
+            return sb.toString();
+        } catch (NoSuchAlgorithmException ex) {
         }
-        return false;
+        return null;
+
+
     }
 
-    protected org.flyfishalex.model.User getUser(){
-       return userService.getCurrentUser();
+    protected User getCurrentUser() {
+        String email= (String) session.getAttribute(SESSION_USER);
+        return userService.getUser(email);
     }
 }

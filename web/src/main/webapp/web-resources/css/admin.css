@@ -1,6 +1,6 @@
 #container {
     /*border: black thin solid;*/
-    width: 90%;
+    width: 100%;
 }
 
 #tree {
@@ -18,7 +18,17 @@
     float: none;
 }
 
-#category div{
-    width: 95%;
-    display: inline-block;
+#selectCategoryForm{
+    background: #ffffff;
+    position: absolute;
+    left: 350px;
+    top: 100px;
+    border: thin solid;
+    width: 500px;
+    height: 500px;
+    z-index: 1500;
+    overflow-y: scroll;
+}
+#selectCategoryTable tr:hover{
+    background: gray;
 }

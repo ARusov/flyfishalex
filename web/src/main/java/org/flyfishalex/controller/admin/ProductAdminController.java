@@ -1,7 +1,5 @@
 package org.flyfishalex.controller.admin;
 
-import com.fasterxml.jackson.core.JsonProcessingException;
-import com.fasterxml.jackson.databind.ObjectMapper;
 import org.flyfishalex.bl.CategoryService;
 import org.flyfishalex.bl.ProductService;
 import org.flyfishalex.enums.Lang;
@@ -63,12 +61,6 @@ public class ProductAdminController {
 
         productService.saveProduct(product);
 
-        ObjectMapper mapper = new ObjectMapper();
-        try {
-            System.out.println(mapper.writeValueAsString(product));
-        } catch (JsonProcessingException e) {
-            e.printStackTrace();
-        }
         return "redirect:http://localhost:8080/flyfishalex/ru/admin/products/product/"+product.getId();
 
     }
