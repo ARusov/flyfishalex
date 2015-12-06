@@ -27,17 +27,19 @@ public class IndexController extends AbstractController {
 
     @RequestMapping(value = {"/", "/index", ""})
     public ModelAndView getIndex(@PathVariable("lang") String lang) {
-        ModelAndView mav = new ModelAndView("index");
-        mav.addObject("rootCategories", categoryService.getCategoriesDTO(0, Lang.getLang(lang)));
-        mav.addObject("childCategories", categoryService.get2ndCategories(Lang.getLang(lang)));
-        mav.addObject("user", getCurrentUser());
-        mav.addObject("products", productService.getLastProducts(36, Lang.getLang(lang)));
-        mav.addObject("lang", Lang.getLang(lang));
-        if (Lang.EN == Lang.getLang(lang)) {
-            mav.addObject("catalogue", "Catalogue");
-        } else {
-            mav.addObject("catalogue", "Каталог");
+        ModelAndView mav = new ModelAndView(lang+"/index");
+        Lang _lang=Lang.getLang(lang);
+        mav.addObject("user", getCurrentUser(Lang.getLang(lang)));
+        if(_lang==Lang.NORTHBAY){
+            mav.addObject("rootCategories", categoryService.getCategoriesDTO(0, _lang));
+            mav.addObject("childCategories", categoryService.get2ndCategories(_lang));
+            mav.addObject("products", productService.getLastProducts(36, _lang));
         }
+        if(_lang==Lang.VISION){
+            mav.addObject("rootCategories", categoryService.getCategoriesDTO(0, _lang));
+            mav.addObject("products", productService.getProductsFromCategories(_lang));
+        }
+        mav.addObject("lang", _lang);
         return mav;
     }
 
@@ -80,5 +82,35 @@ public class IndexController extends AbstractController {
         sitemap.getSitemap().add(new SitemapLoc(Lang.getLang(lang).getContext()+"/sitemap-categories.xml"));
         sitemap.getSitemap().add(new SitemapLoc(Lang.getLang(lang).getContext()+"/sitemap-products.xml"));
         return sitemap;
+    }
+
+
+    @RequestMapping(value = "/about", method = RequestMethod.GET)
+    public ModelAndView getAbout(@PathVariable("lang") String lang) {
+        ModelAndView mav = new ModelAndView(lang+"/about");
+        mav.addObject("rootCategories", categoryService.getCategoriesDTO(0, Lang.getLang(lang)));
+        mav.addObject("childCategories", categoryService.get2ndCategories(Lang.getLang(lang)));
+        mav.addObject("user", getCurrentUser(Lang.getLang(lang)));
+        mav.addObject("lang", Lang.getLang(lang));
+        return mav;
+    }
+    @RequestMapping(value = "/about/payment", method = RequestMethod.GET)
+    public ModelAndView getAboutPayment(@PathVariable("lang") String lang) {
+        ModelAndView mav = new ModelAndView(lang+"/aboutPayment");
+        mav.addObject("rootCategories", categoryService.getCategoriesDTO(0, Lang.getLang(lang)));
+        mav.addObject("childCategories", categoryService.get2ndCategories(Lang.getLang(lang)));
+        mav.addObject("user", getCurrentUser(Lang.getLang(lang)));
+        mav.addObject("lang", Lang.getLang(lang));
+        return mav;
+    }
+
+    @RequestMapping(value = "/about/delivery", method = RequestMethod.GET)
+    public ModelAndView getAboutDelivery(@PathVariable("lang") String lang) {
+        ModelAndView mav = new ModelAndView(lang+"/aboutDelivery");
+        mav.addObject("rootCategories", categoryService.getCategoriesDTO(0, Lang.getLang(lang)));
+        mav.addObject("childCategories", categoryService.get2ndCategories(Lang.getLang(lang)));
+        mav.addObject("user", getCurrentUser(Lang.getLang(lang)));
+        mav.addObject("lang", Lang.getLang(lang));
+        return mav;
     }
 }

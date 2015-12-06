@@ -7,6 +7,7 @@ import org.flyfishalex.model.User;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
 import java.util.UUID;
 
 /**
@@ -20,7 +21,7 @@ public class UserService {
     private UserDao userDao;
 
     public void createUser(User user,Lang lang) {
-        User checkUser = userDao.getUser(user.getEmail());
+        User checkUser = userDao.getUser(user.getEmail(), lang);
         if (checkUser != null) {
             throw new UserException("User exists", lang);
         }
@@ -32,14 +33,18 @@ public class UserService {
         userDao.updateUser(user);
     }
 
-
-    public User getUser(String email, String pwd) {
-        return userDao.getUser(email, pwd);
+    public void saveUser(User user) {
+        userDao.saveUser(user);
     }
 
 
-    public User getUser(String email) {
-        return userDao.getUser(email);
+    public User getUser(String email, String pwd, Lang lang) {
+        return userDao.getUser(email, pwd,lang );
+    }
+
+
+    public User getUser(String email, Lang lang) {
+        return userDao.getUser(email, lang);
     }
 
     public User getUser(long id) {
@@ -47,4 +52,7 @@ public class UserService {
     }
 
 
+    public List<User> getUsers() {
+        return userDao.getUsers();
+    }
 }

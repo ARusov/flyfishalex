@@ -34,6 +34,19 @@ public class Order {
 
     private int store;
 
+    private String comment;
+
+    public Order() {
+    }
+
+    public String getComment() {
+        return comment;
+    }
+
+    public void setComment(String comment) {
+        this.comment = comment;
+    }
+
     public int getStore() {
         return store;
     }
@@ -72,9 +85,6 @@ public class Order {
 
     public void setAddress(Address address) {
         this.address = address;
-    }
-
-    public Order() {
     }
 
     public long getId() {

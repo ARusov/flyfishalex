@@ -17,7 +17,7 @@
             <th class="product-nameEn">Наименование англ</th>
             <th class="product-category">Категория</th>
             <th class="product-provider">Поставщик</th>
-            <th class="product-edit"><a href="http://localhost:8080/flyfishalex/ru/admin/products/product">New</a></th>
+            <th class="product-edit"><a href="${lang.context}/admin/products/product">New</a></th>
             <th class="product-delete"></th>
         </tr>
         <c:if test="${not empty products}">
@@ -28,10 +28,18 @@
                     <td class="product-nameEn">${product.nameEn}</td>
                     <td class="product-category">${product.categoryId}</td>
                     <td class="product-provider">${product.provider}</td>
-                    <td class="product-edit"><a href="http://localhost:8080/flyfishalex/ru/admin/products/product/${product.id}">Edit</a></td>
-                    <td class="product-delete"><a href="http://localhost:8080/flyfishalex/ru/admin/products/product/delete/${product.id}">Delete</a></td>
+                    <td class="product-edit"><a href="${lang.context}/admin/products/product/${product.id}">Edit</a>
+                    </td>
+                    <td class="product-delete"><a href="${lang.context}/admin/products/product/delete/${product.id}">Delete</a>
+                    </td>
                 </tr>
             </c:forEach>
+            <tr>
+                <td colspan="2" align="right"><c:if test="${page >0}">
+                    <a href="${lang.context}/admin/products?p=${page-1}">Назад</a>
+                </c:if></td>
+                <td> <a href="${lang.context}/admin/products?p=${page+1}">Далее</a></td>
+            </tr>
         </c:if>
     </table>
 </div>

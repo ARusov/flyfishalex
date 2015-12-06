@@ -28,6 +28,16 @@ public class Variant {
 
     private int count;
 
+    private int provider;
+
+    public int getProvider() {
+        return provider;
+    }
+
+    public void setProvider(int provider) {
+        this.provider = provider;
+    }
+
     public String getArticle() {
         return article;
     }

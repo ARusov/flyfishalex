@@ -29,7 +29,9 @@
         <constructor-arg name="mongoDbFactory" ref="mongoDbFactory"/>
     </bean>
 
-    <bean class="org.springframework.web.servlet.view.BeanNameViewResolver" />
+    <bean class="org.springframework.web.servlet.view.BeanNameViewResolver"/>
+
+
 
     <!--<import resource="spring-security.xml"/>-->
 </beans>

@@ -1,9 +1,12 @@
 package org.flyfishalex.controller.admin;
 
 import org.flyfishalex.bl.CategoryService;
+import org.flyfishalex.bl.UserService;
 import org.flyfishalex.controller.AbstractController;
+import org.flyfishalex.controller.exception.UserNotFoundException;
 import org.flyfishalex.enums.Lang;
 import org.flyfishalex.model.Category;
+import org.flyfishalex.model.User;
 import org.flyfishalex.model.dto.CategoryDTO;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -35,7 +38,10 @@ public class CategoriesAdminController extends AbstractController {
         if (category == null) {
             category = new Category();
         }
-
+        User user = getCurrentUser(Lang.getLang(lang));
+        if (user == null) {
+            throw new UserNotFoundException("User was not found", Lang.getLang(lang));
+        }
         mav.addObject("category", category);
         mav.addObject("parentCategory", categoryService.getCategory(category.getParentId()));
         mav.addObject("allCategories", categoryService.getCategories(Lang.getLang(lang)));

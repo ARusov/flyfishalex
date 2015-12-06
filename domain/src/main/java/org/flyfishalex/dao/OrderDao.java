@@ -85,12 +85,14 @@ public class OrderDao {
         }
     }
 
-    public List<Delivery> getDeliveries() {
-        return operations.findAll(Delivery.class);
+    public List<Delivery> getDeliveries(String lang) {
+        Query query = query(where("lang").is(lang));
+        return operations.find(query, Delivery.class);
     }
 
-    public List<Payment> getPayments() {
-        return operations.findAll(Payment.class);
+    public List<Payment> getPayments(String lang) {
+        Query query = query(where("lang").is(lang));
+        return operations.find(query, Payment.class);
     }
 
     public List<Order> getOrders(long userId) {

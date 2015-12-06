@@ -1,0 +1,28 @@
+body {
+    width: 1000px;
+    margin-left: auto;
+    margin-right: auto;
+    font-family: Arial;
+    font-size: 13px;
+    font-weight: normal;
+    /*background: #E6E6FA;*/
+}
+
+div {
+    display: block;
+}
+a{
+    text-decoration: none;
+    color: #11325d;
+}
+.invisible{
+    visibility: hidden;
+    height: 0;
+    width: 0;
+}
+h1{
+    font-family: Arial;
+    font-size: 20px;
+    font-weight: normal;
+    text-align: left;
+}

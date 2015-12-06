@@ -1,6 +1,8 @@
 package org.flyfishalex.convert.parser.rybolovorg;
 
 
+import org.apache.commons.io.FileUtils;
+
 import javax.xml.bind.JAXBContext;
 import javax.xml.bind.JAXBException;
 import javax.xml.bind.Unmarshaller;
@@ -9,6 +11,9 @@ import javax.xml.stream.XMLStreamException;
 import javax.xml.stream.XMLStreamReader;
 import javax.xml.transform.stream.StreamSource;
 import java.io.*;
+import java.net.URI;
+import java.net.URISyntaxException;
+import java.net.URL;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -26,7 +31,10 @@ public class RybolovParser {
 
     public static void main(String[] args) throws IOException {
 
-     final File file = new File("C:\\tmp\\yml_rybolov.xml");
+        URL url= new URL("http://www.rybolov.org/YML-public/yml_rybolov.xml");
+        File file=new File("yml_rybolov.xml");
+        FileUtils.copyURLToFile(url, file);
+
 //         File file = new File("/home/tmp/yml_rybolov.xml");
         RybolovParser rybolovParser = new RybolovParser(file);
         List<RybolovCategory> categories = rybolovParser.getCategories();

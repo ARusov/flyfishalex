@@ -1,0 +1,48 @@
+
+#container {
+    /*border: black thin solid;*/
+    width: 100%;
+    display: table;
+    margin-top: 20px;
+}
+
+#items {
+    /*border: black thin solid;*/
+    height: auto;
+    min-height: 50px;
+    float: right;
+    text-align: center;
+}
+
+.short {
+    width: 770px;
+
+}
+
+.short .item {
+    margin-left: 10px;
+}
+
+.full {
+    width: 1000px;
+
+}
+
+.full .item {
+    margin-left: 9px;
+    margin-right: 9px;
+}
+
+.item {
+    border: gainsboro thin solid;
+    width: 180px;
+    min-height: 200px;
+    border-radius: 5px;
+    display: block;
+    margin-bottom: 5px;
+    float: left;
+
+}
+.row-item{
+    display: table;
+}

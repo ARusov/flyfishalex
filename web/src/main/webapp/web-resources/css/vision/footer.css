@@ -1,0 +1,40 @@
+#footer {
+    border-top: gainsboro thin solid;
+    margin-top: 20px;
+    width: 90%;
+    height: 50px;
+    display: table;
+}
+
+#footer-block {
+    width: 100%;
+    margin: 0px 0px 90px 0px;
+    display: table-row;
+}
+
+.footer-menu {
+    float: left;
+    position: relative;
+    top: 0px;
+    left: 0px;
+}
+.footer-menu ul{
+    width: 230px;
+    margin: 0px;
+    overflow: hidden;
+    position: relative;
+    top: 0px;
+    left: 0px;
+    min-height: 140px;
+}
+
+.footer-menu ul li{
+    text-align: left;
+    list-style-type: none;
+    padding: 0px 0px 10px 0px;
+}
+#copyright {
+    display: table-row;
+    color: gainsboro;
+    text-align: center;
+}

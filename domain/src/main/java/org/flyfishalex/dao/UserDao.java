@@ -1,13 +1,16 @@
 package org.flyfishalex.dao;
 
+import org.flyfishalex.enums.Lang;
 import org.flyfishalex.model.User;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Sort;
 import org.springframework.data.mongodb.core.MongoOperations;
 import org.springframework.data.mongodb.core.query.Query;
 import org.springframework.stereotype.Repository;
 
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
+import java.util.List;
 
 import static org.springframework.data.mongodb.core.query.Criteria.where;
 import static org.springframework.data.mongodb.core.query.Query.query;
@@ -51,6 +54,12 @@ public class UserDao {
         }
     }
 
+    public void saveUser(User user) {
+        if (user != null) {
+            operations.save(user);
+        }
+    }
+
     public void updateUser(User user) {
         if (user != null) {
             user.setPwd(cryptWithMD5(user.getPwd()));
@@ -58,18 +67,27 @@ public class UserDao {
         }
     }
 
-    public User getUser(String email) {
-        Query query = query(where("email").is(email));
+    public User getUser(String email, Lang lang) {
+        Query query = query(where("email").is(email).and("lang").is(lang.getLang()));
         return operations.findOne(query, User.class);
     }
+
     public User getUser(long id) {
         Query query = query(where("id").is(id));
         return operations.findOne(query, User.class);
     }
 
 
-    public User getUser(String email, String pwd) {
-        Query query = query(where("email").is(email).and("pwd").is(cryptWithMD5(pwd)));
+    public User getUser(String email, String pwd, Lang lang) {
+        Query query = query(where("email").is(email)
+                .and("pwd").is(cryptWithMD5(pwd))
+                .and("lang").is(lang.getLang()));
         return operations.findOne(query, User.class);
+    }
+
+    public List<User> getUsers() {
+        Query query = new Query();
+        query.with(new Sort(Sort.Direction.ASC, "id"));
+        return operations.find(query, User.class);
     }
 }

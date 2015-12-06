@@ -5,6 +5,8 @@ import org.flyfishalex.enums.OrderStatus;
 import org.flyfishalex.model.Order;
 import org.flyfishalex.model.OrderPoint;
 import org.flyfishalex.model.User;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Service;
 
 import javax.mail.*;
@@ -19,9 +21,24 @@ import java.util.Properties;
  */
 @Service
 public class EmailService {
-
+    private static final String REGISTRATION = "Спасибо за регистрацию";
+    private static final String CHANGE_STATUS = "Изменение статуса заказа";
+    private static final String NEW_ORDER = "Новый заказ";
+    private final Logger LOGGER = LoggerFactory.getLogger(getClass());
 
     public void sendEmailRegistration(User user) {
+        sendEmail(user.getEmail(), REGISTRATION, getMessageRegistration(user));
+    }
+
+    public void sendEmailChangeStatus(User user, Order currentOrder, OrderStatus orderStatus) {
+        sendEmail(user.getEmail(), CHANGE_STATUS, getMessageChangeStatus(user, currentOrder, orderStatus));
+    }
+
+    public void sendEmailNewOrder(User user, Order order, List<OrderPoint> orderPoints) {
+        sendEmail(user.getEmail(), NEW_ORDER, getMessageNewOrder(user, order, orderPoints));
+    }
+
+    private void sendEmail(String email, String subject, String text) {
         Properties props = new Properties();
 //        props.put("mail.debug", "true");
         props.put("mail.smtp.host", "smtp.yandex.com");
@@ -31,26 +48,27 @@ public class EmailService {
         props.put("mail.smtp.auth", "true");
         props.put("mail.smtp.port", "465");
         Session session = Session.getInstance(props,
-                new javax.mail.Authenticator() {
+                new Authenticator() {
                     protected PasswordAuthentication getPasswordAuthentication() {
                         return new PasswordAuthentication("northbay", "R123!#%r"); //логин и пароль для аутентификации на сервере
                     }
                 });
         try {
             Message message = new MimeMessage(session);
+
             message.setFrom(new InternetAddress("northbay@yandex.ru")); //откуда отправляю письмо
-            message.setRecipient(Message.RecipientType.TO, new InternetAddress(user.getEmail())); //куда  отправляется письмо
-            message.setContent(getMessageText(user), "text/html; charset=utf-8");
-            message.setSubject("Спасибо за регстрацию");     //тема письма
-//            message.setText(getMessageText(null)); //содержимое письма
-            Transport.send(message); // на это строке отваливается и кидает ошибку
-            System.out.println("Done");
+            message.setRecipient(Message.RecipientType.TO, new InternetAddress(email)); //куда  отправляется письмо
+            message.setRecipient(Message.RecipientType.CC, new InternetAddress("northbay@yandex.ru")); //куда  отправляется письмо
+            message.setContent(text, "text/html; charset=utf-8");
+            message.setSubject(subject);     //тема письма
+            Transport.send(message);
+            LOGGER.debug("Message has been sent to {}", email);
         } catch (MessagingException e) {
-            throw new RuntimeException(e);
+            LOGGER.warn("Message has not been sent to {} , error {}", email, e.getMessage());
         }
     }
 
-    private String getMessageText(User user) {
+    private String getMessageRegistration(User user) {
         StringBuilder sb = new StringBuilder();
         sb.append("<html>");
         sb.append("<head>");
@@ -62,8 +80,7 @@ public class EmailService {
         sb.append("<p><span>Спасибо, что зарегистрировались у нас! </span></p>");
         sb.append("<p><span>Ваш логин {1}</span></p>");
         sb.append("<p><span>Перейдите по ссылке {2}, чтобы подвердить Вашу электронную почту </span></p>");
-        sb.append("<p><span>Спасибо, что с нами!</span></p>");
-        sb.append("<p><span>Команда <a href=\"http://northbay.ru\">northbay.ru</a></span></p>");
+        addSignature(sb);
         sb.append("</div>");
         sb.append("</body>");
         sb.append("</html>");
@@ -111,9 +128,7 @@ public class EmailService {
             sb.append("</tr>");
         }
         sb.append("</table>");
-
-        sb.append("<p><span>Спасибо, что с нами!</span></p>");
-        sb.append("<p><span>Команда <a href=\"http://northbay.ru\">northbay.ru</a></span></p>");
+        addSignature(sb);
         sb.append("</div>");
         sb.append("</body>");
         sb.append("</html>");
@@ -130,13 +145,20 @@ public class EmailService {
         sb.append("<body lang=RU link=blue vlink=purple style='tab-interval:36.0pt'>");
         sb.append("<div class=WordSection1>");
         sb.append("<p><span>Уважемый(ая), {0}!</span></p>");
-        sb.append("<p><span>Статус Вашего заказа {1} изменился на {2} </span></p>");
-        sb.append("<p><span>Спасибо, что с нами!</span></p>");
-        sb.append("<p><span>Команда <a href=\"http://northbay.ru\">northbay.ru</a></span></p>");
+        sb.append("<p><span>Статус Вашего заказа номер <b>{1}</b> изменился на \"{2}\" </span></p>");
+        addSignature(sb);
         sb.append("</div>");
         sb.append("</body>");
         sb.append("</html>");
         String result = MessageFormat.format(sb.toString(), user.getName(), order.getId(), status.getMessage());
         return result;
     }
+
+    private void addSignature(StringBuilder sb) {
+        sb.append("<p><span>Спасибо, что Вы с нами!</span></p>");
+        sb.append("<p><span>Команда <a href=\"http://northbay.ru\">northbay.ru</a></span></p>");
+
+    }
+
+
 }

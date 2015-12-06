@@ -4,7 +4,9 @@ import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 
 import java.util.ArrayList;
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 
 /**
  * Created by arusov on 4/1/2015.
@@ -19,7 +21,7 @@ public class Category {
 
     private String nameEn;
 
-    private List<Integer>stores= new ArrayList<Integer>();
+    private Set<Integer> stores= new HashSet<Integer>();
 
     private long parentId;
 
@@ -28,11 +30,11 @@ public class Category {
     public Category() {
     }
 
-    public List<Integer> getStores() {
+    public Set<Integer> getStores() {
         return stores;
     }
 
-    public void setStores(List<Integer> stores) {
+    public void setStores(Set<Integer> stores) {
         this.stores = stores;
     }
 

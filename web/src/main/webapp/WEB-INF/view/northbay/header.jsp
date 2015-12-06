@@ -11,7 +11,7 @@
             </c:when>
             <c:otherwise>
                 <a class="nav-tab" href="${lang.context}/user/registration">Регистрация</a>
-                <a class="nav-tab" href="${lang.context}/user/login" >Вход</a>
+                <a class="nav-tab" href="${lang.context}/user/login">Вход</a>
             </c:otherwise>
         </c:choose>
 
@@ -22,4 +22,4 @@
         </a>
     </div>
 </div>
-<jsp:include page="../navigation.jsp"/>
+<jsp:include page="../vision/navigation.jsp"/>

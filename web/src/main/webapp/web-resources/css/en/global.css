@@ -1,0 +1,28 @@
+body {
+    width: 1000px;
+    margin-left: auto;
+    margin-right: auto;
+    font-family: Arial;
+    font-size: 13px;
+    font-weight: normal;
+    background: #959595 url("http://resources.visionfishing.ru/resources/images/body_catalogue.gif") top left repeat-x;
+}
+
+div {
+    display: block;
+}
+a{
+    text-decoration: none;
+    color: #613030;
+}
+.invisible{
+    visibility: hidden;
+    height: 0;
+    width: 0;
+}
+h1{
+    font-family: Arial;
+    font-size: 20px;
+    font-weight: normal;
+    text-align: left;
+}

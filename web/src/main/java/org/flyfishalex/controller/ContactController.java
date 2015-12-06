@@ -12,7 +12,7 @@ public class ContactController {
 
     @RequestMapping(value = "/feedback")
     public ModelAndView getFeedback(@PathVariable("lang") String lang){
-        ModelAndView mav= new ModelAndView("feedback");
+        ModelAndView mav= new ModelAndView(lang+"/feedback");
         mav.addObject("lang", Lang.getLang(lang));
         return mav;
     }

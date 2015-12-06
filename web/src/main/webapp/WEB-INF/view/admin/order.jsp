@@ -33,6 +33,42 @@
             </form>
         </c:forEach>
     </table>
+    <div id="address">
+        <table>
+            <tr>
+                <td>Индекс:</td>
+                <td>${order.address.zip}</td>
+            </tr>
+            <tr>
+                <td>Странна:</td>
+                <td>${order.address.country}</td>
+            </tr>
+            <tr>
+                <td>Регион:</td>
+                <td>${order.address.region}</td>
+            </tr>
+            <tr>
+                <td>Город:</td>
+                <td>${order.address.city}</td>
+            </tr>
+            <tr>
+                <td>Улица:</td>
+                <td>${order.address.street}</td>
+            </tr>
+            <tr>
+                <td>Здание:</td>
+                <td>${order.address.building}</td>
+            </tr>
+            <tr>
+                <td>Квартира:</td>
+                <td>${order.address.flat}</td>
+            </tr>
+            <tr>
+                <td>Телефон:</td>
+                <td>${order.address.tel}</td>
+            </tr>
+        </table>
+    </div>
     <form:form commandName="order" method="post" action="${lang.context}/admin/orders/${order.id}">
         <div class="row">
             <form:hidden path="id"/>

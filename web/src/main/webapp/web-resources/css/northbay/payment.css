@@ -1,0 +1,36 @@
+
+#container {
+    /*border: black thin solid;*/
+    width: 40%;
+    display: table;
+    margin-left: auto;
+    margin-right: auto;
+    border: gainsboro thin solid;
+    border-radius: 2px;
+    margin-top: 50px;
+    font-size: 17px;
+}
+#container .edit_row{
+    font-size: 18px;
+    width: 100%;
+    min-width: 297px;
+    margin: 0;
+    height: 35px;
+    padding: 0px 0px 0px 10px;
+}
+.row{
+    width: 70%;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 10px;
+}
+#button{
+    cursor: pointer;
+}
+.error{
+    color: red;
+    text-align: center;
+}
+.text{
+    text-align: justify;
+}

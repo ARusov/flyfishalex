@@ -21,14 +21,12 @@ public class ProductController extends AbstractController {
     @Autowired
     private CategoryService categoryService;
 
-
     @Autowired
     private ProductService productService;
 
-
     @RequestMapping(value = "/{productId}")
     public ModelAndView getProduct(@PathVariable("lang") String lang, @PathVariable("productId") long productId) {
-        ModelAndView mav = new ModelAndView("product");
+        ModelAndView mav = new ModelAndView(lang+"/product");
 
         Product product = productService.getProduct(productId);
         if (product != null) {
@@ -44,7 +42,7 @@ public class ProductController extends AbstractController {
             } else {
                 mav.addObject("catalogue", "Каталог");
             }
-            User user= getCurrentUser();
+            User user= getCurrentUser(Lang.getLang(lang));
             if(user!=null){
                 mav.addObject("user", user);
             }

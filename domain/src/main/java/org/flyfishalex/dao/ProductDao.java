@@ -1,9 +1,13 @@
 package org.flyfishalex.dao;
 
+import com.google.common.collect.Lists;
 import org.flyfishalex.enums.Lang;
 import org.flyfishalex.model.Product;
 import org.flyfishalex.model.Variant;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageRequest;
+import org.springframework.data.domain.Pageable;
 import org.springframework.data.domain.Sort;
 import org.springframework.data.mongodb.core.MongoOperations;
 import org.springframework.data.mongodb.core.query.Query;
@@ -63,11 +67,12 @@ public class ProductDao {
 
     public List<Product> getProducts(long categoryId, Lang lang) {
         Query query = query(where("categoryId").is(categoryId).and("stores").is(lang.getId()));
+        query.with(new Sort(Sort.Direction.ASC, "id"));
         return operations.find(query, Product.class);
 
     }
 
-    public List<Product> getProducts( Lang lang) {
+    public List<Product> getProducts(Lang lang) {
         Query query = query(where("stores").is(lang.getId()));
         return operations.find(query, Product.class);
 
@@ -75,6 +80,15 @@ public class ProductDao {
 
     public List<Product> getProducts() {
         return operations.findAll(Product.class);
+    }
+
+    public List<Product> getProducts(int page) {
+        int limit=50;
+        Query query = new Query();
+        query.limit(limit);
+        query.skip(limit*page);
+        query.with(new Sort(Sort.Direction.ASC, "id"));
+        return operations.find(query, Product.class);
     }
 
     public List<Variant> getVariants(long productId) {
@@ -95,12 +109,17 @@ public class ProductDao {
     public List<Product> getLastProducts(int count, Lang lang) {
         Query query = query(where("stores").is(lang.getId()));
         query.limit(count);
-        query.with(new Sort(Sort.Direction.DESC,"id"));
+        query.with(new Sort(Sort.Direction.DESC, "id"));
         return operations.find(query, Product.class);
     }
 
     public Variant getVariantByVendor(String article) {
         Query query = query(where("article").is(article));
         return operations.findOne(query, Variant.class);
+    }
+
+    public Product getProduct(String productName) {
+        Query query = query(where("name").is(productName));
+        return operations.findOne(query, Product.class);
     }
 }

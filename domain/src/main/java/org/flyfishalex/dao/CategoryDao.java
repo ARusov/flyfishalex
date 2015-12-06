@@ -53,6 +53,7 @@ public class CategoryDao {
 
     public List<Category> getCategories(long parentId, Lang lang) {
         Query query = query(where("parentId").is(parentId).and("stores").is(lang.getId()));
+        query.with(new Sort(Sort.Direction.ASC,"id"));
         return operations.find(query, Category.class);
     }
 
@@ -78,7 +79,7 @@ public class CategoryDao {
 
     public List<Category> getCategories(Lang lang) {
         Query query = query(where("stores").is(lang.getId()));
-        query.with(new Sort(Sort.Direction.ASC,"name"));
+        query.with(new Sort(Sort.Direction.ASC, "name"));
         return operations.find(query, Category.class);
     }
 
@@ -117,13 +118,18 @@ public class CategoryDao {
 
     public List<Category> get2ndCategories(Lang lang) {
         List<Category> categories = new ArrayList<Category>();
-        List<Category> parents = getCategories(0,lang);
-        for(Category parent:parents){
+        List<Category> parents = getCategories(0, lang);
+        for (Category parent : parents) {
             Query query = query(where("parentId").is(parent.getId()).and("stores").is(lang.getId()));
             categories.addAll((List<Category>) operations.find(query, Category.class));
         }
 
 
         return categories;
+    }
+
+    public Category getCategory(String categoryName) {
+        Query query = query(where("name").is(categoryName));
+        return operations.findOne(query, Category.class);
     }
 }

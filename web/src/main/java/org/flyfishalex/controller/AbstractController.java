@@ -2,6 +2,8 @@ package org.flyfishalex.controller;
 
 
 import org.flyfishalex.bl.UserService;
+import org.flyfishalex.controller.exception.UserNotFoundException;
+import org.flyfishalex.enums.Lang;
 import org.flyfishalex.model.User;
 import org.springframework.beans.factory.annotation.Autowired;
 
@@ -15,7 +17,7 @@ public class AbstractController {
     protected static final String SESSION_USER = "sessionProfile";
 
     @Autowired
-    private UserService userService;
+    protected UserService userService;
 
     @Autowired
     protected HttpSession session;
@@ -38,8 +40,15 @@ public class AbstractController {
 
     }
 
-    protected User getCurrentUser() {
+    protected User getCurrentUser(Lang lang) {
         String email= (String) session.getAttribute(SESSION_USER);
-        return userService.getUser(email);
+        return userService.getUser(email, lang);
+    }
+
+    protected void checkUser(Lang lang){
+        User user = getCurrentUser(lang);
+        if (user == null) {
+            throw new UserNotFoundException("User was not found", lang);
+        }
     }
 }

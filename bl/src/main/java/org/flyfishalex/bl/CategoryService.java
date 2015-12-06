@@ -122,4 +122,8 @@ public class CategoryService {
         List<Category> categories = categoryDao.get2ndCategories(lang);
         return convertCategories(categories,lang);
     }
+
+    public Category getCategory(String categoryName) {
+        return categoryDao.getCategory(categoryName);
+    }
 }

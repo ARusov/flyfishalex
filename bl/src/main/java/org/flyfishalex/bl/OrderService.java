@@ -70,16 +70,16 @@ public class OrderService {
         return orderDao.getOrderPoint(orderPointId);
     }
 
-    public List<Delivery> getDeliveries() {
-        return orderDao.getDeliveries();
+    public List<Delivery> getDeliveries(String lang) {
+        return orderDao.getDeliveries(lang);
     }
 
     public void saveDelivery(Delivery delivery) {
         orderDao.saveDelivery(delivery);
     }
 
-    public List<Payment> getPayments() {
-        return orderDao.getPayments();
+    public List<Payment> getPayments(String lang) {
+        return orderDao.getPayments(lang);
     }
 
     public void savePayment(Payment payment) {

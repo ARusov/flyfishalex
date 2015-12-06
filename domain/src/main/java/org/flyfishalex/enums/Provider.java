@@ -5,8 +5,9 @@ package org.flyfishalex.enums;
  */
 public enum  Provider {
 
-    FLYFISHALEX(1, "В обработке"),
-    RYBOLOV(2, "В обработке");
+    FLYFISHALEX(1, "FLYFISHALEX"),
+    RYBOLOV(2, "RYBOLOV"),
+    VISION(3, "VISION");
 
     private final int code;
 

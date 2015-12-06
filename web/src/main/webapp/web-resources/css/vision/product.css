@@ -1,0 +1,99 @@
+h1 {
+    font-size: 16px;
+    font-family: Arial;
+    text-align: center;
+    color: #f5f5f5;
+}
+
+#container {
+    /*border: black thin solid;*/
+    width: 720px;
+    float: right;
+    margin-top: 10px;
+}
+
+#product {
+    /*border: gainsboro thin solid;*/
+    width: inherit;
+}
+
+#product table {
+    /*border: gainsboro thin solid;*/
+    width: inherit;
+}
+
+#product-info {
+    /*border: gainsboro thin solid;*/
+}
+
+#product-images {
+    /*border: gainsboro thin solid;*/
+}
+
+.product-image {
+    border: gainsboro thin solid;
+    float: left;
+    margin: 2px;
+    width: 300px;
+}
+
+.product-image img {
+    width: inherit;
+}
+
+#product-price-variant {
+    /*border: gainsboro thin solid;*/
+    height: auto;
+    float: right;
+}
+
+#product-variant {
+    /*border: gainsboro thin solid;*/
+    margin-top: 10px;
+    border-top: gainsboro thin solid;
+    width: 720px;
+    text-align: center;
+}
+
+#product-variant table {
+    width: 720px;
+    text-align: left;
+    border: 0;
+}#product-variant table tr:hover {
+    background-color: #777777;
+}
+
+.product-variant {
+}
+
+.product-variant h2 {
+    font-weight: normal;
+    font-size: 12pt;
+    margin: 0;
+    padding: 0;
+}
+
+h2 span {
+    margin-left: 10px;
+    font-size: 120%;
+}
+
+#product-description {
+    /*border-top: gainsboro thin solid;*/
+    text-align: justify;
+    color: #efefef;
+}
+.product-variant-link{
+    width: inherit;
+    height: 30px;
+    display: table-cell;
+    background-color: #613030;
+    border-radius: 5px;
+    vertical-align: middle;
+
+}
+.product-variant-link a{
+    color: #f5f5f5;
+
+}
+

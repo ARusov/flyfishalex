@@ -28,18 +28,13 @@ public class CategoryController {
 
     @RequestMapping(value = "/{id}")
     public ModelAndView getCategories(@PathVariable("id") long categoryId, @PathVariable("lang") String lang) {
-        ModelAndView mav = new ModelAndView("category");
+        ModelAndView mav = new ModelAndView(lang+"/category");
         mav.addObject("rootCategories", categoryService.getCategoriesDTO(0, Lang.getLang(lang)));
         mav.addObject("childCategories", categoryService.get2ndCategories(Lang.getLang(lang)));
         mav.addObject("categories", categoryService.getCategoriesDTO(categoryId, Lang.getLang(lang)));
-
+        mav.addObject("category", categoryService.getCategory(categoryId));
         mav.addObject("products", productService.getProducts(categoryId, Lang.getLang(lang)));
         mav.addObject("lang",Lang.getLang(lang));
-        if (Lang.EN == Lang.getLang(lang)) {
-            mav.addObject("catalogue", "Catalogue");
-        }else {
-            mav.addObject("catalogue", "Каталог");
-        }
         return mav;
     }
 

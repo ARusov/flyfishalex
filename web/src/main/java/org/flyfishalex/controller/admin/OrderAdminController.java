@@ -1,12 +1,13 @@
 package org.flyfishalex.controller.admin;
 
+import org.flyfishalex.bl.EmailService;
 import org.flyfishalex.bl.OrderService;
+import org.flyfishalex.bl.UserService;
+import org.flyfishalex.controller.AbstractController;
+import org.flyfishalex.controller.exception.UserNotFoundException;
 import org.flyfishalex.enums.Lang;
 import org.flyfishalex.enums.OrderStatus;
-import org.flyfishalex.model.Delivery;
-import org.flyfishalex.model.Order;
-import org.flyfishalex.model.OrderPoint;
-import org.flyfishalex.model.Payment;
+import org.flyfishalex.model.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.ModelAttribute;
@@ -22,13 +23,23 @@ import java.util.List;
  */
 @Controller
 @RequestMapping(value = "/{lang}/admin")
-public class OrderAdminController {
+public class OrderAdminController extends AbstractController {
+
+    @Autowired
+    private EmailService emailService;
 
     @Autowired
     private OrderService orderService;
 
+    @Autowired
+    private UserService userService;
+
     @RequestMapping(value = "/orders", method = RequestMethod.GET)
     public ModelAndView getOrders(@PathVariable("lang") String lang) {
+        User user = getCurrentUser(Lang.getLang(lang));
+        if (user == null) {
+            throw new UserNotFoundException("User was not found", Lang.getLang(lang));
+        }
         ModelAndView mav = new ModelAndView("admin/orders");
         mav.addObject("orders", orderService.getOrders());
         mav.addObject("statuses", OrderStatus.values());
@@ -39,6 +50,10 @@ public class OrderAdminController {
     @RequestMapping(value = "/orders/{orderID}", method = RequestMethod.GET)
     public ModelAndView getOrder(@PathVariable("orderID") long orderID,
                                  @PathVariable("lang") String lang) {
+        User user = getCurrentUser(Lang.getLang(lang));
+        if (user == null) {
+            throw new UserNotFoundException("User was not found", Lang.getLang(lang));
+        }
         ModelAndView mav = new ModelAndView("admin/order");
         mav.addObject("order", orderService.getOrderById(orderID));
         mav.addObject("orderPoints", orderService.getOrderPoints(orderID));
@@ -55,8 +70,11 @@ public class OrderAdminController {
         if (currentOrder != null) {
             currentOrder.setStatus(order.getStatus());
             currentOrder.setDeliveryPrice(order.getDeliveryPrice());
-            //TODO:send email
             orderService.saveOrder(currentOrder);
+            User user=userService.getUser(currentOrder.getUserId());
+            if(user!=null){
+                emailService.sendEmailChangeStatus(user,currentOrder,OrderStatus.getOrderStatus(currentOrder.getStatus()));
+            }
         }
         return "redirect:" + Lang.getLang(lang).getContext() + "/admin/orders/" + orderID;
     }
@@ -88,6 +106,10 @@ public class OrderAdminController {
     public String deleteOrderPoint(@PathVariable("orderID") long orderID,
                                @PathVariable("pointId") long pointId,
                                @PathVariable("lang") String lang) {
+        User user = getCurrentUser(Lang.getLang(lang));
+        if (user == null) {
+            throw new UserNotFoundException("User was not found", Lang.getLang(lang));
+        }
         Order currentOrder = orderService.getOrderById(orderID);
         if (currentOrder != null) {
             OrderPoint currentPoint= orderService.getOrderPoint(pointId);
@@ -104,16 +126,21 @@ public class OrderAdminController {
     }
 
     @RequestMapping(value = "/orders/delivery", method = RequestMethod.GET)
-    public ModelAndView getDelivery() {
+    public ModelAndView getDelivery( @PathVariable("lang") String lang) {
+        User user = getCurrentUser(Lang.getLang(lang));
+        if (user == null) {
+            throw new UserNotFoundException("User was not found", Lang.getLang(lang));
+        }
         ModelAndView mav = new ModelAndView("admin/delivery");
         mav.addObject("delivery", new Delivery());
-        mav.addObject("deliveries", orderService.getDeliveries());
+        mav.addObject("deliveries", orderService.getDeliveries(lang));
         return mav;
     }
 
     @RequestMapping(value = "/orders/delivery", method = RequestMethod.POST)
     public String saveDelivery(@PathVariable("lang") String lang, @ModelAttribute Delivery delivery) {
         if (delivery != null && !delivery.getDescription().isEmpty()) {
+            delivery.setLang(lang);
             orderService.saveDelivery(delivery);
         }
         return "redirect:" + Lang.getLang(lang).getContext() + "/admin/orders/delivery";
@@ -121,16 +148,21 @@ public class OrderAdminController {
 
 
     @RequestMapping(value = "/orders/payment", method = RequestMethod.GET)
-    public ModelAndView getPayment() {
+    public ModelAndView getPayment( @PathVariable("lang") String lang) {
+        User user = getCurrentUser(Lang.getLang(lang));
+        if (user == null) {
+            throw new UserNotFoundException("User was not found", Lang.getLang(lang));
+        }
         ModelAndView mav = new ModelAndView("admin/payment");
         mav.addObject("payment", new Payment());
-        mav.addObject("payments", orderService.getPayments());
+        mav.addObject("payments", orderService.getPayments(lang));
         return mav;
     }
 
     @RequestMapping(value = "/orders/payment", method = RequestMethod.POST)
     public String savePayment(@PathVariable("lang") String lang, @ModelAttribute Payment payment) {
         if (payment != null && !payment.getDescription().isEmpty()) {
+            payment.setLang(lang);
             orderService.savePayment(payment);
         }
         return "redirect:" + Lang.getLang(lang).getContext() + "/admin/orders/payment";

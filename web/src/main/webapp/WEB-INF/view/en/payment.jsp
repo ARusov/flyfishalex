@@ -5,9 +5,9 @@
 
 <html>
 <head>
-    <link rel="stylesheet" href="<c:url value="/resources/css/global.css"/> ">
-    <link rel="stylesheet" href="<c:url value="/resources/css/header.css"/> ">
-    <link rel="stylesheet" href="<c:url value="/resources/css/footer.css"/> ">
+    <link rel="stylesheet" href="<c:url value="${lang.resources}/resources/css/en/global.css"/> ">
+    <link rel="stylesheet" href="<c:url value="${lang.resources}/resources/css/en/header.css"/> ">
+    <link rel="stylesheet" href="<c:url value="${lang.resources}/resources/css/en/footer.css"/> ">
     <title>Магазин</title>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
 </head>
@@ -28,17 +28,17 @@
 
     <font face="tahoma" size="2"/>
 
-    <input type="hidden" name="shopId" value="48132">
+    <input type="hidden" name="shopId" value="104002">
 
-    <input type="hidden" name="scid" value="525746">
+    <input type="hidden" name="scid" value="527913">
 
     Идентификатор клиента:<br>
 
-    <input type=text name="CustomerNumber" size="64" value="client007"><br><br>
+    <input type=text name="CustomerNumber" size="64" value="${userId}"><br><br>
 
     Сумма (руб.):<br>
 
-    <input type=text name="sum" size="64" value="100"><br><br>
+    <input type=text name="sum" size="64" value="${price}"><br><br>
 
 
     <!-- CustomerNumber -- до 64 символов; идентификатор плательщика в ИС Контрагента.
@@ -56,15 +56,11 @@
 
     <!-- необязательные поля (все параметры яндекс.кассы регистрозависимые) -->
 
-    <input name="orderNumber" value="order777" type="hidden"/>
+    <input name="orderNumber" value="${orderId}" type="hidden"/>
 
-    <input name="cps_phone" value="79110000000" type="hidden"/>
+    <input name="shopSuccessURL" value="${lang.context}/paymentSuccess" type="hidden"/>
 
-    <input name="cps_email" value="user@domain.com" type="hidden"/>
-
-    <input name="shopSuccessURL" value="${lang.context}/" type="hidden"/>
-
-    <input name="shopFailURL" value="user@domain.com" type="hidden"/>
+    <input name="shopFailURL" value="${lang.context}/paymentFail" type="hidden"/>
 
 
     <!-- Внимание! Для тестирования в ДЕМО-среде доступны только два метода оплаты: тестовый Яндекс.Кошелек и Тестовая банковская карта

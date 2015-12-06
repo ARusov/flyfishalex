@@ -4,7 +4,9 @@ import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 
 import java.util.ArrayList;
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 
 /**
  * Created by arusov on 4/1/2015.
@@ -31,17 +33,21 @@ public class Product {
 
     private long categoryId;
 
-    private List<Integer> stores = new ArrayList<Integer>();
+    private Set<Integer> stores = new HashSet<Integer>();
 
-    private List<String>  images= new ArrayList<String>();
+    private Set<String> images= new HashSet<String>();
 
-    public List<Integer> getStores() {
-        return stores;
+    private  String image;
+
+    public String getImage() {
+        return image;
     }
 
-    public void setStores(List<Integer> stores) {
-        this.stores = stores;
+    public void setImage(String image) {
+        this.image = image;
     }
+
+
 
     public String getNameEn() {
         return nameEn;
@@ -115,11 +121,19 @@ public class Product {
         this.name = name;
     }
 
-    public List<String> getImages() {
+    public Set<Integer> getStores() {
+        return stores;
+    }
+
+    public void setStores(Set<Integer> stores) {
+        this.stores = stores;
+    }
+
+    public Set<String> getImages() {
         return images;
     }
 
-    public void setImages(List<String> images) {
+    public void setImages(Set<String> images) {
         this.images = images;
     }
 }
