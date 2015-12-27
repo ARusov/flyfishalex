@@ -1,6 +1,7 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
-<div id="cabinetMenu">
-    <div class="cabinetMenu"><a href="${lang.context}/user/cabinet">Личные данные</a></div>
-    <div class="cabinetMenu"><a href="${lang.context}/user/cabinet/orders">Мои заказы</a></div>
-    <div class="cabinetMenu"><a href="${lang.context}/user/cabinet/cart">Моя корзина</a></div>
-</div>
+
+<ul class="nav nav-tabs">
+    <li><a href="${lang.context}/user/cabinet"><h2>Личные данные</h2></a></li>
+    <li><a href="${lang.context}/user/cabinet/orders"><h2>Мои заказы</h2></a></li>
+    <li><a href="${lang.context}/user/cabinet/cart"><h2>Моя корзина</h2></a></li>
+</ul>

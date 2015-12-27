@@ -4,50 +4,34 @@
 
 <html>
 <head>
-    <link rel="stylesheet" href="<c:url value="${lang.resources}/resources/css/northbay/global.css"/>">
-    <link rel="stylesheet" href="<c:url value="${lang.resources}/resources/css/northbay/header.css"/>">
-    <link rel="stylesheet" href="<c:url value="${lang.resources}/resources/css/northbay/footer.css"/>">
-    <link rel="stylesheet" href="<c:url value="${lang.resources}/resources/css/northbay/registration.css"/>">
-    <link rel="stylesheet" href="<c:url value="${lang.resources}/resources/css/northbay/menu.css"/>">
-    <script type="text/javascript" src="<c:url value="${lang.resources}/resources/js/jquery-2.1.4.min.js"/>"></script>
-    <script type="text/javascript" src="<c:url value="${lang.resources}/resources/js/registration.js"/>"></script>
+    <link href="<c:url value="${lang.resources}/resources/css/northbay/bootstrap/css/bootstrap.min.css"/>"
+          rel="stylesheet">
+    <link href="<c:url value="${lang.resources}/resources/css/northbay/bootstrap/css/custom.css"/>"
+          rel="stylesheet">
     <title>Регистрация</title>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
 </head>
 <body>
-<jsp:include page="header.jsp"/>
 <jsp:include page="verticalMenu.jsp"/>
-
-<div id="container">
-
-    <form:form commandName="user" method="post" action="${lang.context}/user/registration">
-        <div class="row">
-            <div>Ваше имя:</div>
-            <form:input path="name"/>
-        </div>
-        <div class="row">
-            <div>Email:</div>
-            <form:input path="email"/>
-        </div>
-        <div class="row">
-            <div>Пароль:</div>
-            <form:password path="pwd"/>
-        </div>
-        <div class="row">
-            <div>Повторите пароль:</div>
-            <input type="password" id="repeatPwd"/>
-        </div>
-        <div class="row">
-            <input id="button" type="submit" value="Регистрация"/>
-        </div>
+<div class="container">
+    <form name="user" class="form-signin" role="form" method="post" action="${lang.context}/user/registration">
+        <h2 class="form-signin-heading">Введите логин и пароль:</h2>
+        <input name="name" type="text" class="form-control" placeholder="Name" required="" autofocus="">
+        <input name="email" type="email" class="form-control" placeholder="Email address" required="" autofocus="">
+        <input name="pwd" type="password" class="form-control" placeholder="Password" required="">
         <c:if test="${not empty error}">
-            <div class="row">
-                <div class="error"><span>Вы уже зарегистрированы на на нашем сайте. Вы можете <a
-                        href="${lang.context}/user/login">войти</a> на сайт или <a>восстановить пароль</a></span></div>
+            <div class="alert alert-danger">Вы уже зарегистрированы на на нашем сайте. Вы можете <a
+                    href="${lang.context}/user/login">войти</a> на сайт или <a>восстановить пароль</a>
             </div>
         </c:if>
-    </form:form>
+        <button class="btn btn-lg btn-primary btn-block" type="submit">Зарегистрироваться</button>
+    </form>
+
 </div>
 <jsp:include page="footer.jsp"/>
+<!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+<!-- Include all compiled plugins (below), or include individual files as needed -->
+<script src="<c:url value="${lang.resources}/resources/css/northbay/bootstrap/js/bootstrap.min.js"/>"></script>
 </body>
 </html>

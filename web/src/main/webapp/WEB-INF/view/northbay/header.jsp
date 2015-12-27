@@ -3,17 +3,7 @@
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
 <div id="header">
     <div id="nav-panel">
-        <c:choose>
-            <c:when test="${not empty user.email}">
-                <a class="nav-tab" href="${lang.context}/user/cabinet">Личный кабинет</a>
-                <a class="nav-tab" href="${lang.context}/user/cabinet/cart">Корзина</a>
-                <a class="nav-tab" href="${lang.context}/user/logout">Выход</a>
-            </c:when>
-            <c:otherwise>
-                <a class="nav-tab" href="${lang.context}/user/registration">Регистрация</a>
-                <a class="nav-tab" href="${lang.context}/user/login">Вход</a>
-            </c:otherwise>
-        </c:choose>
+
 
     </div>
     <div id="logo-div">

@@ -17,7 +17,7 @@
 
     </div>
     <div id="logo-div">
-        <a href="${lang.context}">en Fishing</a>
+        <a href="${lang.context}"><img src="${lang.resources}/resources/images/logo_ru.png"></a>
     </div>
 </div>
 <jsp:include page="navigation.jsp"/>

@@ -98,6 +98,7 @@ public class PaymentController {
                     yandexCheckResponse.setOrderSumAmount((String) yandexRequestParams.get(YandexRequestParams.orderSumAmount));
                     yandexCheckResponse.setShopId((String) yandexRequestParams.get(YandexRequestParams.shopId));
                     yandexCheckResponse.setMessage("Спасибо за покупку");
+                    LOGGER.debug("Yandex response checkOrder {}", yandexCheckResponse);
                     return yandexCheckResponse;
                 }
 
@@ -142,6 +143,7 @@ public class PaymentController {
             LOGGER.error("Yandex error: {}", e);
         }
 
+        LOGGER.debug("Yandex response AvisOrder {}", yandexResponse);
         return yandexResponse;
     }
 

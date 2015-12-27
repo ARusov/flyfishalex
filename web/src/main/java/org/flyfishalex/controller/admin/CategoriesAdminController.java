@@ -52,6 +52,28 @@ public class CategoriesAdminController extends AbstractController {
         return mav;
     }
 
+    @RequestMapping(value = "/categories/create", method = RequestMethod.GET)
+    public ModelAndView getCategoriesCreate(@PathVariable("lang") String lang,
+                                      @RequestParam(value = "categoryId", required = false, defaultValue = "0") long categoryId) {
+        ModelAndView mav = new ModelAndView("admin/categoriesCreate");
+        Category category = null;
+        if (categoryId == 0) {
+            category = new Category();
+        } else {
+            category = categoryService.getCategory(categoryId);
+        }
+        if (category == null) {
+            category = new Category();
+        }
+        User user = getCurrentUser(Lang.getLang(lang));
+        if (user == null) {
+            throw new UserNotFoundException("User was not found", Lang.getLang(lang));
+        }
+        mav.addObject("category", category);
+        mav.addObject("stores", Lang.values());
+        mav.addObject("lang", Lang.getLang(lang));
+        return mav;
+    }
 
     @RequestMapping(value = "/category", method = RequestMethod.POST)
     public String saveCategory(@PathVariable("lang") String lang,
@@ -62,13 +84,12 @@ public class CategoriesAdminController extends AbstractController {
             categoryService.createCategory(category);
         }
 
-        return "redirect:" + Lang.getLang(lang).getContext() + "/admin/categories?categoryId=" + category.getId();
+        return "redirect:" + Lang.getLang(lang).getContext() + "/admin/categories?categoryId=" + category.getParentId();
     }
 
-    @RequestMapping(value = "/categories", method = RequestMethod.DELETE)
-    public
-    @ResponseBody
-    String deleteCategory(@RequestParam(value = "categoryId", required = false) Long categoryId) {
+    @RequestMapping(value = "/categories/delete", method = RequestMethod.GET)
+    public String deleteCategory(@RequestParam(value = "categoryId", required = false) Long categoryId,
+                                 @PathVariable("lang") String lang) {
         if (categoryId != null) {
             List<CategoryDTO> childs = categoryService.getCategoriesDTO(categoryId, Lang.getLang("ru"));
             if (childs == null || childs.size() > 0) {
@@ -80,7 +101,9 @@ public class CategoriesAdminController extends AbstractController {
             }
 
         }
-        return "Category has been removed";
+        return "redirect:" + Lang.getLang(lang).getContext() + "/admin/categories?categoryId=0";
     }
+
+
 
 }

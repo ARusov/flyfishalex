@@ -5,51 +5,68 @@
 
 <html>
 <head>
-    <link rel="stylesheet" href="<c:url value="${lang.resources}/resources/css/admin.css"/> ">
-    <link rel="stylesheet" href="<c:url value="${lang.resources}/resources/css/global.css"/> ">
-    <link rel="stylesheet" href="<c:url value="${lang.resources}/resources/css/menu.css"/> ">
-    <link rel="stylesheet" href="<c:url value="${lang.resources}/resources/css/admin.css"/> ">
-    <script type="text/javascript" src="<c:url value="${lang.resources}/resources/js/jquery-2.1.4.min.js"/>"></script>
-    <script type="text/javascript" src="<c:url value="${lang.resources}/resources/js/admin.js"/>"></script>
-    <title>Магазин</title>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+    <link href="<c:url value="${lang.resources}/resources/bootstrap/css/bootstrap.min.css"/>" rel="stylesheet">
+    <title>Admin-categories</title>
+    <
 </head>
 <body>
-<div id="container">
-    <jsp:include page="menu.jsp"/>
-    <div id="category">
-        <div id="selectCategoryForm" class="invisible">
-            <table id="selectCategoryTable">
-                <c:forEach items="${allCategories}" var="category">
-                    <tr>
-                        <td>${category.id}</td>
-                        <td>${category.name}</td>
-                    </tr>
-                </c:forEach>
-            </table>
-            <div><span id="selectCategoryFormClose">Close</span></div>
+<div class="container">
+    <div class="navbar navbar-inverse navbar-static-top" role="navigation">
+        <div class="navbar-header">
+            <a class="navbar-brand" href="${lang.context}">Go to site ${lang.lang}</a>
         </div>
-        <div>
-            <form:form method="post" commandName="category"
-                       action="${lang.context}/admin/category">
-                <p>Идентификатор в базе данных: <form:input path="id"/></p>
+        <div class="collapse navbar-collapse">
+            <ul class="nav navbar-nav">
+                <li class="active"><a href="">Orders</a></li>
+                <li><a href="">Delivery</a></li>
+                <li><a href="">Payment</a></li>
+                <li><a href="">Categories</a></li>
+                <li><a href="">Users</a></li>
+            </ul>
+        </div>
+        <!--/.nav-collapse -->
+    </div>
+    <div class="page-header">
+        <h1>Categories</h1>
+    </div>
+    <div class="row">
+        <div class="navmenu navmenu-default navmenu-fixed-left col-xs-6 col-md-3">
+            <a class="navmenu-brand visible-md visible-lg" href="${lang.context}/admin/categories?categoryId=0"><h2>Каталог</h2></a>
+            <ul class="nav navmenu-nav">
+                <li>
+                    <span><a href="${lang.context}/admin/categories?categoryId=${category.parentId}">Назад</a></span>
+                    <span class="badge"><a
+                            href="${lang.context}/admin/categories/create?categoryId=${category.parentId}">+</a></span>
+                </li>
+                <c:forEach var="сategory" items="${categories}">
+                    <li>
+                        <span><a href="${lang.context}/admin/categories?categoryId=${сategory.id}">${сategory.name}</a></span>
+                        <span class="badge"><a href="${lang.context}/admin/categories/create?categoryId=${сategory.id}">+</a></span>
+                        <span class="badge"><a href="${lang.context}/admin/categories/delete?categoryId=${сategory.id}">-</a></span>
+                    </li>
+                </c:forEach>
+            </ul>
+        </div>
+        <div class="col-xs-6 col-md-9">
+            <div class="panel panel-default">
+                <!-- Default panel contents -->
+                <div class="panel-heading">Товары категории</div>
 
-                <p>Российское наименование: <form:input path="name"/></p>
-
-                <p>Родительская категория: <form:input path="parentId"/><span id="parentName">${parentCategory.name}</span> <a
-                        id="selectCategory">...</a>
-                </p>
-
-                <form:checkboxes path="stores" items="${stores}" itemValue="id" itemLabel="lang"/>
-
-                <p>Вендор <form:input path="vendorId"/></p>
-
-                <input type="submit" value="Изменить/Добавить"/>
-                <input id="deleteCatogory" type="button" value="Удалить"/>
-            </form:form>
-
+                <!-- Table -->
+                <table class="table">
+                    ...
+                </table>
+            </div>
         </div>
     </div>
 </div>
+<!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+<!-- Include all compiled plugins (below), or include individual files as needed -->
+<script src="<c:url value="${lang.resources}/resources/bootstrap/js/bootstrap.min.js"/>"></script>
 </body>
 </html>

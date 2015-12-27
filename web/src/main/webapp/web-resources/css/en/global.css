@@ -5,7 +5,7 @@ body {
     font-family: Arial;
     font-size: 13px;
     font-weight: normal;
-    background: #959595 url("http://resources.visionfishing.ru/resources/images/body_catalogue.gif") top left repeat-x;
+    background: #ffffff;
 }
 
 div {
@@ -13,7 +13,7 @@ div {
 }
 a{
     text-decoration: none;
-    color: #613030;
+    color: #B8B8A5;
 }
 .invisible{
     visibility: hidden;

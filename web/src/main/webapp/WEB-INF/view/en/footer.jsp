@@ -18,7 +18,7 @@
         </div>
     </div>
     <div id="copyright">
-        <span>РЫБОЛОВНЫЙ ИНТЕРЕТ МАГАЗИН. <a href="http://enfishing.ru/">en FISHING</a>. ВСЕ ПРАВА ЗАЩИЩЕНЫ &#169; ${year}.</span>
+        <span>РЫБОЛОВНЫЙ ИНТЕРЕТ МАГАЗИН. <a href="http://flyfishalex.ru">FlyFishAlex.ru</a>. ВСЕ ПРАВА ЗАЩИЩЕНЫ &#169; ${year}.</span>
     </div>
 
     <!-- Yandex.Metrika counter -->

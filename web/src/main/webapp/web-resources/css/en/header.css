@@ -1,8 +1,9 @@
 #header{
     /*border: black thin solid;*/
     /*border-bottom: solid #11325d thin;*/
-    width: 1000px;
-    height: 15px;
+    height: 75px;
+    background: #B8B8A5;
+    background-image: url(http://flyfishalex.ru/design/WST130206_S215_fish_3/images/bg/bg_top.png) ;
 
 }
 
@@ -40,7 +41,7 @@
 
 }
 .nav-tab a{
-    color: #f5f5f5;
+    color: #B8B8A5;
 }
 #navigation{
     /*border-bottom: solid #11325d thin;*/
